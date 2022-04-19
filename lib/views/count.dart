@@ -48,40 +48,9 @@ class count extends StatelessWidget {
                     ],
                   ),
                 ),
-
-
-                /*Text(' '),//Passing callbacks onIncrment and onDecrement
-                NumberInputWithIncrementDecrement(
-                  controller: TextEditingController(),
-                  widgetContainerDecoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue
-                    )
-                  ),
-                  min: 1,
-                  max: 5,
-                ),*/
               ],
             ),
           ),
-          /*Center(
-            child: ListView(
-              padding: EdgeInsets.all(12),
-              children: [
-                Text('Passing callbacks onIncrment and onDecrement'),
-                NumberInputWithIncrementDecrement(
-                  controller: TextEditingController(),
-                  onIncrement: (num newlyIncrementedValue) {
-                    print('Newly incrmented value is $newlyIncrementedValue');
-                  },
-                  onDecrement: (num newlyDecrementedValue) {
-                    print(
-                        'Newly decremented value is $newlyDecrementedValue');
-                  },
-                ),
-              ],
-            ),
-          ),*/
           SafeArea(
               child: Container(
                 padding: EdgeInsets.only(
@@ -91,20 +60,6 @@ class count extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                  /*Column(
-                    children: [
-                      NumberInputWithIncrementDecrement(
-                        controller: TextEditingController(),
-                        widgetContainerDecoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.blue
-                            )
-                        ),
-                        min: 1,
-                        max: 5,
-                      ),
-                    ],
-                  ),*/
                   Padding(
                     padding: const EdgeInsets.only(top: 450.0),
                     child: SizedBox(
@@ -148,80 +103,11 @@ class count extends StatelessWidget {
                       ),
                     ),
                   ),
-                  /*Align(
-                    alignment: Alignment.bottomCenter,
-                    child: RaisedButton(
-                      onPressed: () {},
-                      child: const Text('Bottom Button!', style: TextStyle(fontSize: 20)),
-                      color: Colors.blue,
-                      textColor: Colors.white,
-                      elevation: 5,
-                    ),
-                  )*/
                 ],
               ),
             )
           )
         ],
-        /*padding: const EdgeInsets.all(2.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Image.asset("assets/images/logo1.png", height: 150),
-              Text('Quantas disciplinas você \ndeseja cursar esse \nperíodo ?'),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: FlatButton(
-                    textColor: Colors.white,
-                    color: Colors.blue,
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/home');
-                    },
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    child: Padding(
-                        padding: EdgeInsets.only(
-                            left: 16.0, right: 16.0, top: 16, bottom: 16),
-                        child: Text("GET STARTED",
-                            style: TextStyle(fontSize: 12.0))),
-                  ),
-                ),
-              )
-             ],
-            /*child: Container(
-            width: 100.0,
-            foregroundDecoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-            child: Row(),
-
-
-
-                          Flexible(
-                  child: Container(
-                    child: Card(
-                      child: Column(
-                        children: <Widget>[
-                          Text('Quantas disciplinas você \ndeseja cursar esse \nperíodo ?'),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: Size.fromHeight(25),
-                            ),
-                            onPressed: () {},
-                            child: Text('Voltar')
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-              )
-          ),*/
-          ),
-        ),*/
       ),
     );
   }

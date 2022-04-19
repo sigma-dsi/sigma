@@ -17,69 +17,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-/*class disciplinas_Bsi {
-  int diciplina_id;
-  String diciplina_name;
-  bool isCheck;
-
-  disciplinas_Bsi({this.diciplina_id, this.diciplina_name, this.isCheck});
-
-  static List<disciplinas_Bsi> getDisciplinas(){
-    return <disciplinas_Bsi>[
-      //1º Período
-      disciplinas_Bsi(diciplina_id: 1, diciplina_name: "Sustentabilidade em Sistemas de Informação", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 2, diciplina_name: "Fundamentos Matemáticos para Sistemas de Informação I", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 3, diciplina_name: "Projeto Interdisciplinar para Sistemas de Informação I", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 4, diciplina_name: "Princípios de Programação", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 5, diciplina_name: "Introdução à Administração", isCheck: false),
-      //2º Período
-      disciplinas_Bsi(diciplina_id: 6, diciplina_name: "Fundamentos de Sistemas de Informação", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 8, diciplina_name: "Fundamentos Matemáticos para Sistemas de Informação II", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 9, diciplina_name: "Projeto Interdisciplinar para Sistemas de Informação II", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 10, diciplina_name: "Fundamentos de Problemas Computacionais I", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 11, diciplina_name: "Elementos de Sistemas Computacionais", isCheck: false),
-      //3º Período
-      disciplinas_Bsi(diciplina_id: 12, diciplina_name: "Engenharia para Sistemas de Informação I", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 13, diciplina_name: "Introdução ao Armazenamento e Análise de Dados", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 14, diciplina_name: "Projeto Interdisciplinar para Sistemas de Informação III", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 15, diciplina_name: "Desenvolvimento de Sistemas de Informação", isCheck: false),
-      //4º Período
-      disciplinas_Bsi(diciplina_id: 16, diciplina_name: "Princípios de Software Básico", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 17, diciplina_name: "Projeto Interdisciplinar para Sistemas de Informação IV", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 18, diciplina_name: "Fundamentos de Problemas Computacionais II", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 19, diciplina_name: "Sistemas de Informação na Interne", isCheck: false),
-      //5º Período
-      disciplinas_Bsi(diciplina_id: 20, diciplina_name: "Engenharia para Sistemas de Informação II", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 21, diciplina_name: "Projeto de Desenvolvimento Tecnológico para o Mundo I", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 22, diciplina_name: "Segurança e Auditoria de Sistemas", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 23, diciplina_name: "Empreendedorismo e Inovação", isCheck: false),
-      //6º Período
-      disciplinas_Bsi(diciplina_id: 24, diciplina_name: "Engenharia para Sistemas de Informação III", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 25, diciplina_name: "Modelagem de Dados", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 26, diciplina_name: "Projeto de Desenvolvimento Tecnológico para o Mundo II", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 27, diciplina_name: "Calculo N1", isCheck: false),
-      //7º Período
-      disciplinas_Bsi(diciplina_id: 28, diciplina_name: "Estatística Aplicada à Análise de Dados", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 29, diciplina_name: "Projeto de Soluções Complexas I / Projetos para a Sociedade I", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 30, diciplina_name: "Princípios da Teoria da Computação", isCheck: false),
-      //8º Período
-      disciplinas_Bsi(diciplina_id: 31, diciplina_name: "Fundamentos de Estratégia Competitiva", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 32, diciplina_name: "Projeto de Soluções Complexas II / Projeto para Sociedade II", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 33, diciplina_name: "Análise Organizacional e de Processos", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 34, diciplina_name: "Gestão do Conhecimento", isCheck: false),
-      //8º Período
-      disciplinas_Bsi(diciplina_id: 35, diciplina_name: "Trabalho de Conclusão de Curso", isCheck: false),
-      //Optativas
-      disciplinas_Bsi(diciplina_id: 36, diciplina_name: "Optativa I: Reconhecimento de Padrões", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 37, diciplina_name: "Optativa II: Internet das Coisas", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 38, diciplina_name: "Optativa III: Sistemas Colaborativos", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 39, diciplina_name: "Optativa IV: Introdução a Computação Quântica", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 40, diciplina_name: "Optativa V: Fundamentos de Criptografia", isCheck: false),
-      disciplinas_Bsi(diciplina_id: 41, diciplina_name: "Optativa VI: Modelagem Matemático-Computacional aplicada a epidemiologia", isCheck: false),
-    ];
-  }
-}*/
-
 class ListSearch extends StatefulWidget {
   ListSearchState createState() => ListSearchState();
 }
@@ -90,7 +27,23 @@ class ListSearchState extends State<ListSearch> {
   final _saved = <String>{};
   final _biggerFont = TextStyle(fontSize: 18);
   static List<String> mainDataList = [
-
+    //1º Período
+    "Sustentabilidade em Sistemas de Informação",
+    "Fundamentos Matemáticos para Sistemas de Informação I",
+    "Projeto Interdisciplinar para Sistemas de Informação I",
+    "Princípios de Programação",
+    "Introdução à Administração",
+    //2º Período
+    "Fundamentos de Sistemas de Informação",
+    "Fundamentos Matemáticos para Sistemas de Informação II",
+    "Projeto Interdisciplinar para Sistemas de Informação II",
+    "Fundamentos de Problemas Computacionais I",
+    "Elementos de Sistemas Computacionais",
+    //3º Período
+    "Engenharia para Sistemas de Informação I",
+    "Introdução ao Armazenamento e Análise de Dados",
+    "Projeto Interdisciplinar para Sistemas de Informação III",
+    "Desenvolvimento de Sistemas de Informação",
     //4º Período
     "Princípios de Software Básico",
     "Projeto Interdisciplinar para Sistemas de Informação IV",
