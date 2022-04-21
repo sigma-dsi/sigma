@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
-import 'home_page.dart';
+import 'disciplinas.dart';
+import 'menu_page.dart';
 
 class count extends StatelessWidget {
   const count({Key? key}) : super(key: key);
@@ -63,12 +64,12 @@ class count extends StatelessWidget {
                     width: double.infinity,
                     child: FlatButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
+                      color: const Color(0xff0303ff),
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomePage()),
+                              builder: (context) => const MenuPage()),
                         );
                       },
                       shape: RoundedRectangleBorder(
@@ -82,14 +83,23 @@ class count extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 0.0),
                   child: SizedBox(
                     width: double.infinity,
                     child: FlatButton(
                       textColor: Colors.white,
-                      color: Colors.blue,
-                      onPressed: () {},
+                      color: const Color(0xff0303ff),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()),
+                        );
+                      },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.0),
                       ),

@@ -5,28 +5,25 @@ import 'count.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
-
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: SingleChildScrollView(child: Center(
+        body: Center(
           child: ListSearch(),
-        ),),
+        ),
       ),
     );
   }
 }
 
 class ListSearch extends StatefulWidget {
-  @override
   ListSearchState createState() => ListSearchState();
 }
 
 class ListSearchState extends State<ListSearch> {
-
-  final TextEditingController _textController = TextEditingController();
+  TextEditingController _textController = TextEditingController();
   final _saved = <String>{};
-  final _biggerFont = const TextStyle(fontSize: 18);
+  final _biggerFont = TextStyle(fontSize: 18);
   static List<String> mainDataList = [
     //1º Período
     "Sustentabilidade em Sistemas de Informação",
@@ -95,26 +92,24 @@ class ListSearchState extends State<ListSearch> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-            Image.asset("assets/images/logo1.png", height: 150),
+          Image.asset("assets/images/logo1.png", height: 150),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Quantas disciplinas você \ndeseja cursar esse período ?',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.3)),
-                
+              Text('Quantas disciplinas você \ndeseja cursar esse período ?',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.3)),
             ],
           ),
-
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               controller: _textController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
                 hintText: 'Search Here...',
               ),
@@ -122,134 +117,131 @@ class ListSearchState extends State<ListSearch> {
             ),
           ),
           Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(12.0),
+            child: new ListView(
+              padding: EdgeInsets.all(12.0),
               children: newDataList.map((data) {
-              return ListTile(
-              title: _buildRow(data),
-              onTap: ()=> print(data),);
+                return ListTile(
+                  title: _buildRow(data),
+                  onTap: () => print(data),
+                );
               }).toList(),
             ),
           ),
           SafeArea(
               child: Container(
-                padding: EdgeInsets.only(
-                    left: 16.0,
-                    right: 16.0,
-                    top: MediaQuery.of(context).size.height * 0.01),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 0.0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: FlatButton(
-                          textColor: Colors.white,
-                          color: Colors.blue,
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4.0),
-                          ),
-                          child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: 16.0, right: 16.0, top: 16, bottom: 16),
-                              child: Text("VOLTAR",
-                                  style: TextStyle(fontSize: 12.0))),
-                        ),
+            padding: EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                top: MediaQuery.of(context).size.height * 0.01),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 0.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: FlatButton(
+                      textColor: Colors.white,
+                      color: const Color(0xff0303ff),
+                      onPressed: () {},
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4.0),
                       ),
+                      child: Padding(
+                          padding: EdgeInsets.only(
+                              left: 16.0, right: 16.0, top: 16, bottom: 16),
+                          child:
+                              Text("VOLTAR", style: TextStyle(fontSize: 12.0))),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 0.0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: FlatButton(
-                          textColor: Colors.white,
-                          color: Colors.blue,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const count()),
-                            );
-                          },
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4.0),
-                          ),
-                          child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: 16.0, right: 16.0, top: 16, bottom: 16),
-                              child: Text("PRÓXIMO",
-                                  style: TextStyle(fontSize: 12.0))),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              )
-          )
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 0.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: FlatButton(
+                      textColor: Colors.white,
+                      color: const Color(0xff0303ff),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()),
+                        );
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4.0),
+                      ),
+                      child: Padding(
+                          padding: EdgeInsets.only(
+                              left: 16.0, right: 16.0, top: 16, bottom: 16),
+                          child: Text("PRÓXIMO",
+                              style: TextStyle(fontSize: 12.0))),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ))
         ],
       ),
     );
   }
 
   Widget _buildRow(pair) {
-  final alreadySaved = _saved.contains(pair);
-  return ListTile(
-    title: Text(
-      pair,
-      style: _biggerFont,
-    ),
-    trailing: Icon(
-      alreadySaved ? Icons.check_box: Icons.check_box_outline_blank,
-      color: alreadySaved ? Colors.blue : null,
-      semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
-    ),
-    onTap: () {   
-      setState(() {
-        if (alreadySaved) {
-          _saved.remove(pair);
-        } else { 
-          _saved.add(pair); 
-        } 
-      });
-    },
+    final alreadySaved = _saved.contains(pair);
+    return ListTile(
+      title: Text(
+        pair,
+        style: _biggerFont,
+      ),
+      trailing: Icon(
+        alreadySaved ? Icons.check_box : Icons.check_box_outline_blank,
+        color: alreadySaved ? Colors.blue : null,
+        semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
+      ),
+      onTap: () {
+        setState(() {
+          if (alreadySaved) {
+            _saved.remove(pair);
+          } else {
+            _saved.add(pair);
+          }
+        });
+      },
     );
   }
 
-    void _pushSaved() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (context) {
-          final tiles = _saved.map(
-            (pair) {
-              return ListTile(
-                title: Text(
-                  pair,
-                  style: _biggerFont,
-                ),
-              );
-            },
-          );
-          final divided = tiles.isNotEmpty
-              ? ListTile.divideTiles(
-                  context: context,
-                  tiles: tiles,
-                ).toList()
-              : <Widget>[];
+  void _pushSaved() {
+    Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (context) {
+        final tiles = _saved.map(
+          (pair) {
+            return ListTile(
+              title: Text(
+                pair,
+                style: _biggerFont,
+              ),
+            );
+          },
+        );
+        final divided = tiles.isNotEmpty
+            ? ListTile.divideTiles(
+                context: context,
+                tiles: tiles,
+              ).toList()
+            : <Widget>[];
 
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('Saved Suggestions'),
-            ),
-            body: ListView(children: divided),
-          );
-        },
-      )
-    );
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Saved Suggestions'),
+          ),
+          body: ListView(children: divided),
+        );
+      },
+    ));
   }
-
-
 }
-
-
-
