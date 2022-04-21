@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_sigma/views/count.dart';
+import 'package:projeto_sigma/views/indicacao.dart';
 import 'count.dart';
 
 class HomePage extends StatelessWidget {
@@ -143,7 +144,13 @@ class ListSearchState extends State<ListSearch> {
                     child: FlatButton(
                       textColor: Colors.white,
                       color: const Color(0xff0303ff),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const count()),
+                        );
+                      },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.0),
                       ),
@@ -169,7 +176,7 @@ class ListSearchState extends State<ListSearch> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomePage()),
+                              builder: (context) => const IndicacaoDisc()),
                         );
                       },
                       shape: RoundedRectangleBorder(
