@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_sigma/views/count.dart';
 import 'package:projeto_sigma/views/indicacao.dart';
+import 'package:projeto_sigma/views/menu_page.dart';
 import 'count.dart';
 
 class HomePage extends StatelessWidget {
@@ -148,7 +149,7 @@ class ListSearchState extends State<ListSearch> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const count()),
+                              builder: (context) => const MenuPage()),
                         );
                       },
                       shape: RoundedRectangleBorder(
@@ -176,7 +177,7 @@ class ListSearchState extends State<ListSearch> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const IndicacaoDisc()),
+                              builder: (context) => const count()),
                         );
                       },
                       shape: RoundedRectangleBorder(

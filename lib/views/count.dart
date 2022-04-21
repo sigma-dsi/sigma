@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
+import 'package:projeto_sigma/views/indicacao.dart';
 import 'disciplinas.dart';
 import 'menu_page.dart';
 
@@ -69,7 +70,7 @@ class count extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const MenuPage()),
+                              builder: (context) => const IndicacaoDisc()),
                         );
                       },
                       shape: RoundedRectangleBorder(
@@ -97,7 +98,7 @@ class count extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomePage()),
+                              builder: (context) => const IndicacaoDisc()),
                         );
                       },
                       shape: RoundedRectangleBorder(

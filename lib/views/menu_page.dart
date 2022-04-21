@@ -28,7 +28,7 @@ class _MenuPageState extends State<MenuPage> {
         child: InkWell(
           onTap: () {
             if (index == 0) {
-              Navigator.of(context).pushNamed('/selcionarDisc');
+              Navigator.of(context).pushNamed('disciplina');
             }
             if (index == 1) {
               Navigator.of(context).pushNamed('/descricao');
