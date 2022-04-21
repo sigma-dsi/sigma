@@ -9,23 +9,24 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
+        body: SingleChildScrollView(child: Center(
           child: ListSearch(),
-        ),
+        ),),
       ),
     );
   }
 }
 
 class ListSearch extends StatefulWidget {
+  @override
   ListSearchState createState() => ListSearchState();
 }
 
 class ListSearchState extends State<ListSearch> {
 
-  TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   final _saved = <String>{};
-  final _biggerFont = TextStyle(fontSize: 18);
+  final _biggerFont = const TextStyle(fontSize: 18);
   static List<String> mainDataList = [
     //1º Período
     "Sustentabilidade em Sistemas de Informação",
@@ -99,7 +100,7 @@ class ListSearchState extends State<ListSearch> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Quantas disciplinas você \ndeseja cursar esse período ?',
+              const Text('Quantas disciplinas você \ndeseja cursar esse período ?',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.black,
@@ -113,7 +114,7 @@ class ListSearchState extends State<ListSearch> {
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               controller: _textController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.search),
                 hintText: 'Search Here...',
               ),
@@ -121,8 +122,8 @@ class ListSearchState extends State<ListSearch> {
             ),
           ),
           Expanded(
-            child: new ListView(
-              padding: EdgeInsets.all(12.0),
+            child: ListView(
+              padding: const EdgeInsets.all(12.0),
               children: newDataList.map((data) {
               return ListTile(
               title: _buildRow(data),
