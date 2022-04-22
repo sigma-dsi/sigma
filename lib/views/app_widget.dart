@@ -1,13 +1,13 @@
 import "package:flutter/material.dart";
-import 'package:projeto_sigma/views/descricao_page.dart';
-import 'package:projeto_sigma/views/grade_atual.dart';
-import 'package:projeto_sigma/views/indicacao.dart';
 
+import 'menu_page.dart';
 import 'count.dart';
 import 'descricao_page.dart';
-import 'disciplinas.dart';
+import 'package:projeto_sigma/views/grade_atual.dart';
+import 'package:projeto_sigma/views/indicacao.dart';
 import 'forum.dart';
-import 'menu_page.dart';
+import 'disciplinas.dart';
+import 'package:projeto_sigma/views/comentario.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -22,6 +22,7 @@ class AppWidget extends StatelessWidget {
       '/indicacao': (context) => const IndicacaoDisc(),
       '/forum': (context) => const Forum(),
       'disciplina': (context) => const HomePage(),
+      'comentario': (context) => const Comentario(),
     });
   }
 }

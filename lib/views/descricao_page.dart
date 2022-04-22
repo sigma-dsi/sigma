@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'menu_page.dart';
 
 class CursoDesc extends StatefulWidget {
   const CursoDesc({Key? key}) : super(key: key);
