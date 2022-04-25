@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatefulWidget {
+  static const routeName = '/';
   const MenuPage({Key? key}) : super(key: key);
 
   @override
@@ -27,19 +28,19 @@ class _MenuPageState extends State<MenuPage> {
         child: InkWell(
           onTap: () {
             if (index == 0) {
-              //1.item
+              Navigator.of(context).pushNamed('disciplina');
             }
             if (index == 1) {
-              //2.item
+              Navigator.of(context).pushNamed('/descricao');
             }
             if (index == 2) {
-              Navigator.pushNamed(context, '/forum');
+              Navigator.of(context).pushNamed('/forum');
             }
             if (index == 3) {
-              //4.item
+              Navigator.of(context).pushNamed('/indicacao');
             }
             if (index == 4) {
-              //5.item
+              Navigator.of(context).pushNamed('/gradeAtual');
             }
             if (index == 5) {
               //6.item
