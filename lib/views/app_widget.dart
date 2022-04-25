@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_sigma/views/forum_page.dart';
 
 import 'menu_page.dart';
 
@@ -9,7 +10,10 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         initialRoute: '/',
-        routes: {'/': (context) => MenuPage()},
+        routes: {
+          '/': (context) => MenuPage(),
+          '/forum': (context) => ForumPage()
+        },
         debugShowCheckedModeBanner: false);
     // ignore: prefer_const_constructors
   }

@@ -33,7 +33,7 @@ class _MenuPageState extends State<MenuPage> {
               //2.item
             }
             if (index == 2) {
-              //3.item
+              Navigator.pushNamed(context, '/forum');
             }
             if (index == 3) {
               //4.item
