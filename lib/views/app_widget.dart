@@ -15,15 +15,18 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(initialRoute: '/', routes: {
-      '/': (context) => const MenuPage(),
-      '/selcionarDisc': (context) => const count(),
-      '/descricao': (context) => const CursoDesc(),
-      '/gradeAtual': (context) => const GradeAtual(),
-      '/indicacao': (context) => const IndicacaoDisc(),
-      '/forum': (context) => const ForumPage(),
-      'disciplina': (context) => const HomePage(),
-      'comentario': (context) => const Comentario(),
-    });
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const MenuPage(),
+          '/selcionarDisc': (context) => const count(),
+          '/descricao': (context) => const CursoDesc(),
+          '/gradeAtual': (context) => const GradeAtual(),
+          '/indicacao': (context) => const IndicacaoDisc(),
+          '/forum': (context) => const ForumPage(),
+          'disciplina': (context) => const HomePage(),
+          'comentario': (context) => const Comentario(),
+        });
   }
 }
