@@ -15,7 +15,6 @@ class count extends StatelessWidget {
           Center(
             child: Column(
               children: [
-                Image.asset("assets/images/logo1.png", height: 150),
                 const Text(
                     'Quantas disciplinas você\n deseja cursar esse período ?',
                     style: TextStyle(
