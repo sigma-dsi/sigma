@@ -1,6 +1,5 @@
 import 'dart:js';
-import '../models/page.model.dart';
-
+import '../components/botao_voltar.dart';
 import 'package:flutter/material.dart';
 
 class ForumPage extends StatefulWidget {
@@ -47,19 +46,8 @@ Widget _listDisciplinas() {
             separatorBuilder: (__, _) => const Divider(),
           ),
         ),
+        const BotaoVoltar()
       ],
     ),
-    //BotaoVoltar();
   );
 }
-
-
-// Widget _listDisciplinas() {
-//   return ListView.builder(
-//       padding: const EdgeInsets.all(16),
-//       itemBuilder: (BuildContext _context, int i) {
-//         final itens = List<String>.generate(
-//             listaTeste.length, (index) => listaTeste[index]);
-//         return Text('$itens');
-//       });
-// }

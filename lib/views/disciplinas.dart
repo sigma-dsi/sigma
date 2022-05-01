@@ -94,7 +94,6 @@ class ListSearchState extends State<ListSearch> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Image.asset("assets/images/logo1.png", height: 150),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
