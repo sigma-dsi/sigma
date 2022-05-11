@@ -48,7 +48,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
   Comentar() {
     return Container(
         alignment: Alignment.center,
-        width: 400,
+        width: 300,
         height: 300,
         child: Form(
           key: _form,

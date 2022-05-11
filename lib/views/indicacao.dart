@@ -13,26 +13,27 @@ class IndicacaoDisc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(title: const Text("Descrição do curso")),
         body: SingleChildScrollView(
             child: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-          const Text('Disciplinas Indicadas ?',
-              style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 0.3)),
-          const SizedBox(
-            height: 60,
-          ),
-          for (int i = 0; i < qtdCadeiras; i++) _screen(i),
-          const SizedBox(
-            height: 60,
-          ),
-          _BotaoVoltar()
-        ]))));
+              const Text('Disciplinas Indicadas ?',
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.3)),
+              const SizedBox(
+                height: 60,
+              ),
+              for (int i = 0; i < qtdCadeiras; i++) _screen(i),
+              const SizedBox(
+                height: 60,
+              ),
+              //_BotaoVoltar()
+            ]))));
   }
 
   Widget _screen(i) {

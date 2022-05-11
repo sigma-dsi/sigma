@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(title: const Text("Selecionar disciplinas")),
         body: Center(
           child: ListSearch(),
         ),
