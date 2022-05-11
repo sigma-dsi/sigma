@@ -24,7 +24,6 @@ class count extends StatelessWidget {
           Center(
             child: Column(
               children: [
-                Image.asset("assets/images/logo1.png", height: 150),
                 const Text(
                     'Quantas disciplinas você\n deseja cursar esse período ?',
                     style: TextStyle(
@@ -84,7 +83,7 @@ class count extends StatelessWidget {
                       child: Text(
                         'VOLTAR',
                         style: TextStyle(
-                          color:  Colors.white,
+                          color: Colors.white,
                           fontSize: 12.0,
                         ),
                       ),
@@ -111,7 +110,7 @@ class count extends StatelessWidget {
                       child: Text(
                         'PROXIMO',
                         style: TextStyle(
-                          color:  Colors.white,
+                          color: Colors.white,
                           fontSize: 12.0,
                         ),
                       ),

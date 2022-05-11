@@ -20,7 +20,6 @@ class _CursoDescState extends State<CursoDesc> {
                 child: Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Image.asset("assets/images/logo1.png", height: 150),
         _Descricao(),
         const SizedBox(height: 20),
         const SizedBox(

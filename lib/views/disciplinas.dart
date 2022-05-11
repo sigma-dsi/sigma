@@ -53,7 +53,6 @@ class ListSearchState extends State<ListSearch> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Image.asset("assets/images/logo1.png", height: 150),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -113,7 +112,7 @@ class ListSearchState extends State<ListSearch> {
                       child: Text(
                         'VOLTAR',
                         style: TextStyle(
-                          color:  Colors.white,
+                          color: Colors.white,
                           fontSize: 12.0,
                         ),
                       ),
@@ -140,7 +139,7 @@ class ListSearchState extends State<ListSearch> {
                       child: Text(
                         'PROXIMO',
                         style: TextStyle(
-                          color:  Colors.white,
+                          color: Colors.white,
                           fontSize: 12.0,
                         ),
                       ),
