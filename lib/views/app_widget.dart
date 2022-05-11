@@ -3,10 +3,11 @@ import 'count.dart';
 import 'descricao_page.dart';
 import 'package:projeto_sigma/views/grade_atual.dart';
 import 'package:projeto_sigma/views/indicacao.dart';
-import 'forum.dart';
+import 'forum_page.dart';
 import 'disciplinas.dart';
 import 'package:projeto_sigma/views/comentario.dart';
 import 'loginscreen.dart';
+import 'comentario.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -19,9 +20,9 @@ class AppWidget extends StatelessWidget {
       '/descricao': (context) => const CursoDesc(),
       '/gradeAtual': (context) => const GradeAtual(),
       '/indicacao': (context) => const IndicacaoDisc(),
-      '/forum': (context) => const Forum(),
+      '/forum': (context) => const ForumPage(),
       'disciplina': (context) => const HomePage(),
-      'comentario': (context) => const Comentario(),
+      'comentario': (context) => const ComentarioPage(),
     });
   }
 }
