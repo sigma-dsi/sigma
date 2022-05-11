@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:projeto_sigma/main.dart';
 import 'package:projeto_sigma/views/menu_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 
 class LoginScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
@@ -219,7 +221,6 @@ class LoginScreen extends StatelessWidget {
       child: TextButton(
         style: flatButtonStyle,
         onPressed: () {
-          firebase();
           auth.signInWithEmailAndPassword(email: email.text, password: senha.text);
           User? userAtual = auth.currentUser;
           if(userAtual != null){
