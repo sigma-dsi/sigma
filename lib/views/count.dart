@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 import 'package:projeto_sigma/views/indicacao.dart';
-import 'disciplinas.dart';
-import 'menu_page.dart';
+
+final valor = TextEditingController();
+var qtdCadeiras;
 
 class count extends StatelessWidget {
   const count({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+      elevation: 5,
+      padding: EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4.0),
+      ),
+      backgroundColor: Colors.blue,
+    );
     return Scaffold(
         body: SingleChildScrollView(
       child: Stack(
@@ -34,7 +43,7 @@ class count extends StatelessWidget {
                       Column(
                         children: [
                           NumberInputWithIncrementDecrement(
-                            controller: TextEditingController(),
+                            controller: valor,
                             widgetContainerDecoration: BoxDecoration(
                                 border: Border.all(color: Colors.blue)),
                             min: 1,
@@ -63,9 +72,8 @@ class count extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 450.0),
                   child: SizedBox(
                     width: double.infinity,
-                    child: FlatButton(
-                      textColor: Colors.white,
-                      color: const Color(0xff0303ff),
+                    child: TextButton(
+                      style: flatButtonStyle,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -73,14 +81,13 @@ class count extends StatelessWidget {
                               builder: (context) => const IndicacaoDisc()),
                         );
                       },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4.0),
+                      child: Text(
+                        'VOLTAR',
+                        style: TextStyle(
+                          color:  Colors.white,
+                          fontSize: 12.0,
+                        ),
                       ),
-                      child: const Padding(
-                          padding: EdgeInsets.only(
-                              left: 16.0, right: 16.0, top: 16, bottom: 16),
-                          child:
-                              Text("VOLTAR", style: TextStyle(fontSize: 12.0))),
                     ),
                   ),
                 ),
@@ -91,24 +98,23 @@ class count extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 0.0),
                   child: SizedBox(
                     width: double.infinity,
-                    child: FlatButton(
-                      textColor: Colors.white,
-                      color: const Color(0xff0303ff),
+                    child: TextButton(
+                      style: flatButtonStyle,
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const IndicacaoDisc()),
                         );
+                        qtdCadeiras = int.tryParse(valor.text);
                       },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4.0),
+                      child: Text(
+                        'PROXIMO',
+                        style: TextStyle(
+                          color:  Colors.white,
+                          fontSize: 12.0,
+                        ),
                       ),
-                      child: const Padding(
-                          padding: EdgeInsets.only(
-                              left: 16.0, right: 16.0, top: 16, bottom: 16),
-                          child: Text("PRÓXIMO",
-                              style: TextStyle(fontSize: 12.0))),
                     ),
                   ),
                 ),

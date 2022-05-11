@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_sigma/views/code.dart';
 import 'package:projeto_sigma/views/count.dart';
-import 'package:projeto_sigma/views/indicacao.dart';
 import 'package:projeto_sigma/views/menu_page.dart';
 import 'count.dart';
+
+var cadeiras_cursadas;
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,60 +26,9 @@ class ListSearch extends StatefulWidget {
 
 class ListSearchState extends State<ListSearch> {
   TextEditingController _textController = TextEditingController();
-  final _saved = <String>{};
+  final _saved = <String>[];
   final _biggerFont = TextStyle(fontSize: 18);
-  static List<String> mainDataList = [
-    //1º Período
-    "Sustentabilidade em Sistemas de Informação",
-    "Fundamentos Matemáticos para Sistemas de Informação I",
-    "Projeto Interdisciplinar para Sistemas de Informação I",
-    "Princípios de Programação",
-    "Introdução à Administração",
-    //2º Período
-    "Fundamentos de Sistemas de Informação",
-    "Fundamentos Matemáticos para Sistemas de Informação II",
-    "Projeto Interdisciplinar para Sistemas de Informação II",
-    "Fundamentos de Problemas Computacionais I",
-    "Elementos de Sistemas Computacionais",
-    //3º Período
-    "Engenharia para Sistemas de Informação I",
-    "Introdução ao Armazenamento e Análise de Dados",
-    "Projeto Interdisciplinar para Sistemas de Informação III",
-    "Desenvolvimento de Sistemas de Informação",
-    //4º Período
-    "Princípios de Software Básico",
-    "Projeto Interdisciplinar para Sistemas de Informação IV",
-    "Fundamentos de Problemas Computacionais II",
-    "Sistemas de Informação na Internet",
-    //5º Período
-    "Engenharia para Sistemas de Informação II",
-    "Projeto de Desenvolvimento Tecnológico para o Mundo I",
-    "Segurança e Auditoria de Sistemas",
-    "Empreendedorismo e Inovação",
-    //6º Período
-    "Engenharia para Sistemas de Informação III",
-    "Modelagem de Dados",
-    "Projeto de Desenvolvimento Tecnológico para o Mundo II",
-    "Calculo N1",
-    //7º Período
-    "Estatística Aplicada à Análise de Dados",
-    "Projeto de Soluções Complexas I / Projetos para a Sociedade I",
-    "Princípios da Teoria da Computação",
-    //8º Período
-    "Fundamentos de Estratégia Competitiva",
-    "Projeto de Soluções Complexas II / Projeto para Sociedade II",
-    "Análise Organizacional e de Processos",
-    "Gestão do Conhecimento",
-    //9º Período
-    "Trabalho de Conclusão de Curso",
-    //Optativas
-    "Optativa I: Reconhecimento de Padrões",
-    "Optativa II: Internet das Coisas",
-    "Optativa III: Sistemas Colaborativos",
-    "Optativa IV: Introdução a Computação Quântica",
-    "Optativa V: Fundamentos de Criptografia",
-    "Optativa VI: Modelagem Matemático-Computacional aplicada a epidemiologia",
-  ];
+  static final mainDataList = listas();
 
   List<String> newDataList = List.from(mainDataList);
 
@@ -91,6 +42,14 @@ class ListSearchState extends State<ListSearch> {
 
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+      elevation: 5,
+      padding: EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4.0),
+      ),
+      backgroundColor: Colors.blue,
+    );
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -142,9 +101,8 @@ class ListSearchState extends State<ListSearch> {
                   padding: const EdgeInsets.only(top: 0.0),
                   child: SizedBox(
                     width: double.infinity,
-                    child: FlatButton(
-                      textColor: Colors.white,
-                      color: const Color(0xff0303ff),
+                    child: TextButton(
+                      style: flatButtonStyle,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -152,14 +110,13 @@ class ListSearchState extends State<ListSearch> {
                               builder: (context) => const MenuPage()),
                         );
                       },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4.0),
+                      child: Text(
+                        'VOLTAR',
+                        style: TextStyle(
+                          color:  Colors.white,
+                          fontSize: 12.0,
+                        ),
                       ),
-                      child: Padding(
-                          padding: EdgeInsets.only(
-                              left: 16.0, right: 16.0, top: 16, bottom: 16),
-                          child:
-                              Text("VOLTAR", style: TextStyle(fontSize: 12.0))),
                     ),
                   ),
                 ),
@@ -170,24 +127,23 @@ class ListSearchState extends State<ListSearch> {
                   padding: const EdgeInsets.only(top: 0.0),
                   child: SizedBox(
                     width: double.infinity,
-                    child: FlatButton(
-                      textColor: Colors.white,
-                      color: const Color(0xff0303ff),
+                    child: TextButton(
+                      style: flatButtonStyle,
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const count()),
                         );
+                        cadeiras_cursadas = _saved;
                       },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4.0),
+                      child: Text(
+                        'PROXIMO',
+                        style: TextStyle(
+                          color:  Colors.white,
+                          fontSize: 12.0,
+                        ),
                       ),
-                      child: Padding(
-                          padding: EdgeInsets.only(
-                              left: 16.0, right: 16.0, top: 16, bottom: 16),
-                          child: Text("PRÓXIMO",
-                              style: TextStyle(fontSize: 12.0))),
                     ),
                   ),
                 ),

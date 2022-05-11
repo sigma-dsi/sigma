@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "300519293200",
+    "project_id": "untitled1-ceb01",
+    "storage_bucket": "untitled1-ceb01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300519293200:android:a072fb5006bb1f9dea6595",
+        "android_client_info": {
+          "package_name": "com.example.artillis.untitled1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300519293200-of45nfvh7un1oa2592l06bi6i6v4kate.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7Hs7dWOfxlvr5vGEODmLBHRxELOv5xgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300519293200-of45nfvh7un1oa2592l06bi6i6v4kate.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
