@@ -1,98 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
+import '../models/list_disciplinas.dart';
 
-const titulo = 'Discipliana';
+class ComentarioPage extends StatefulWidget {
+  Disciplina disciplina;
+  ComentarioPage({Key? key, required this.disciplina}) : super(key: key);
 
-class Comentario extends StatelessWidget {
-  const Comentario({Key? key}) : super(key: key);
+  @override
+  _ComentarioPageState createState() => _ComentarioPageState();
+}
 
+class _ComentarioPageState extends State<ComentarioPage> {
+  final _form = GlobalKey<FormState>();
+  final _valor = TextEditingController();
+  final coment = <Disciplina>[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-            child: Center(
-                child: Column(children: [
-      Image.asset("assets/images/logo1.png", height: 150),
-      const Text("Página em construção"),
-      const SizedBox(
-        height: 80,
-      ),
-      const Text(titulo),
-      Row(
-        children: [],
-      ),
-      const SizedBox(
-        height: 80,
-      ),
-      _BotaoVoltar()
-    ]))));
-  }
-}
-
-class _BotaoVoltar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Column(
-      children: <Widget>[
-        InkWell(
-          onTap: () => Navigator.of(context).pushNamed('/'),
-          child: Ink(
-              decoration: BoxDecoration(
-                color: const Color(0xff0303ff),
-                border: Border.all(color: const Color(0xff0303ff)),
+        appBar: AppBar(
+          title: Text(widget.disciplina.nome),
+        ),
+        body: Center(
+            child: Column(
+          children: [
+            const SizedBox(height: 50),
+            Card(
+              elevation: 10,
+              child: Container(
+                padding: EdgeInsets.all(20.0),
+                alignment: Alignment.centerLeft,
+                child: Text(widget.disciplina.comentario,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      decoration: TextDecoration.none,
+                      decorationStyle: TextDecorationStyle.dotted,
+                      fontSize: 20,
+                      color: Colors.black87,
+                    )),
               ),
-              child: const Expanded(
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 123),
-                      child: Text(
-                        'VOLTAR',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          decorationStyle: TextDecorationStyle.dotted,
-                          fontSize: 12.0,
-                          color: Colors.white,
-                        ),
-                      )))),
-        )
-      ],
-    ));
+            ),
+            const SizedBox(height: 50),
+            Comentar()
+          ],
+        )));
   }
-}
 
-class _CardComentario extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    const Comentario = 'Muito boa a disciplina';
-    return Card(
-        child: Row(
-      children: [
-        Column(
-          children: [
-            const Text(Comentario),
-          ],
-        ),
-        Column(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.thumb_up_alt_outlined),
-              tooltip: 'Concordo',
-              color: Colors.white54,
-              onPressed: () {},
-            ),
-          ],
-        ),
-        Column(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.thumb_down_off_alt),
-              tooltip: 'Discordo',
-              color: Colors.white54,
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ],
-    ));
+  Comentar() {
+    return Container(
+        alignment: Alignment.center,
+        width: 300,
+        height: 300,
+        child: Form(
+          key: _form,
+          child: TextFormField(
+            controller: _valor,
+            style: const TextStyle(fontSize: 22),
+            decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Adicione seu comentário',
+                suffixIcon: Icon(Icons.send)),
+            validator: (value) {},
+          ),
+        ));
   }
 }
