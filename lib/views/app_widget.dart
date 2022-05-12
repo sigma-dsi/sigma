@@ -12,17 +12,26 @@ import 'comentario.dart';
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
 
+  get disciplina => null;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(initialRoute: '/', routes: {
-      '/': (context) =>  LoginScreen(),//LoginScreen()
-      '/selcionarDisc': (context) => const count(),
-      '/descricao': (context) => const CursoDesc(),
-      '/gradeAtual': (context) => const GradeAtual(),
-      '/indicacao': (context) => const IndicacaoDisc(),
-      '/forum': (context) => const ForumPage(),
-      'disciplina': (context) => const HomePage(),
-      'comentario': (context) => const ComentarioPage(),
-    });
+    return MaterialApp(
+        theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+          color: Color(0xff0303ff),
+        )),
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        routes: {
+          '/': (context) => LoginScreen(), //LoginScreen()
+          '/selcionarDisc': (context) => const count(),
+          '/descricao': (context) => const CursoDesc(),
+          '/gradeAtual': (context) => const GradeAtual(),
+          '/indicacao': (context) => const IndicacaoDisc(),
+          '/forum': (context) => const ForumPage(),
+          '/disciplina': (context) => const HomePage(),
+          '/comentario': (context) => ComentarioPage(disciplina: disciplina),
+        });
   }
 }

@@ -20,29 +20,31 @@ class _ComentarioPageState extends State<ComentarioPage> {
         appBar: AppBar(
           title: Text(widget.disciplina.nome),
         ),
-        body: Center(
-            child: Column(
-          children: [
-            const SizedBox(height: 50),
-            Card(
-              elevation: 10,
-              child: Container(
-                padding: EdgeInsets.all(20.0),
-                alignment: Alignment.centerLeft,
-                child: Text(widget.disciplina.comentario,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      decoration: TextDecoration.none,
-                      decorationStyle: TextDecorationStyle.dotted,
-                      fontSize: 20,
-                      color: Colors.black87,
-                    )),
+        body: SingleChildScrollView(
+          child: Center(
+              child: Column(
+            children: [
+              const SizedBox(height: 50),
+              Card(
+                elevation: 10,
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  alignment: Alignment.centerLeft,
+                  child: Text(widget.disciplina.comentario,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        decoration: TextDecoration.none,
+                        decorationStyle: TextDecorationStyle.dotted,
+                        fontSize: 20,
+                        color: Colors.black87,
+                      )),
+                ),
               ),
-            ),
-            const SizedBox(height: 50),
-            Comentar()
-          ],
-        )));
+              const SizedBox(height: 50),
+              Comentar()
+            ],
+          )),
+        ));
   }
 
   Comentar() {

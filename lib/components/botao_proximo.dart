@@ -9,7 +9,7 @@ class BotaoProximo extends StatelessWidget {
         child: Column(
       children: <Widget>[
         InkWell(
-          onTap: () => Navigator.of(context).pushNamed('/comentario'),
+          onTap: () => Navigator.of(context).pushNamed('/indicacao'),
           child: Ink(
               decoration: BoxDecoration(
                 color: const Color(0xff0303ff),
