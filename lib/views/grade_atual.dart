@@ -6,15 +6,15 @@ class GradeAtual extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Grade Curricular"),
+        ),
         body: SingleChildScrollView(
             child: Center(
                 child: Column(children: [
-      Image.asset("assets/images/logo1.png", height: 150),
-      const SizedBox(height: 90),
-      Card(child: Image.asset("assets/images/grade_atual.png")),
-      const SizedBox(height: 50),
-      _BotaoVoltar(),
-    ]))));
+          const SizedBox(height: 90),
+          Card(child: Image.asset("assets/images/grade_atual.png")),
+        ]))));
   }
 }
 
