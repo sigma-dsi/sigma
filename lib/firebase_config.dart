@@ -1,8 +1,8 @@
 import 'dart:developer';
-import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:projeto_sigma/firebase_config.dart';
+import 'package:projeto_sigma/views/code.dart';
 
 class DefaultFirebaseConfig {
   static FirebaseOptions? get platformOptions {
@@ -19,4 +19,17 @@ class DefaultFirebaseConfig {
       return null;
     }
   }
+}
+
+void addlistdb() async{
+  var db = FirebaseFirestore.instance.collection('lista_disciplina');
+  var result = await db.get();
+  int cont = 0;
+  db.snapshots().listen((r) {
+    result = r;
+    for(var doc in result.docs){
+      lista_cadeira.add(r.docs[cont]['nome']);
+      cont++;
+    }
+  });
 }

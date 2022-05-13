@@ -15,32 +15,32 @@ class _CursoDescState extends State<CursoDesc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Descrição do Curso de sistemas de informação"),
+        ),
         body: SingleChildScrollView(
             child: Center(
                 child: Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Image.asset("assets/images/logo1.png", height: 150),
-        _Descricao(),
-        const SizedBox(height: 20),
-        const SizedBox(
-          child: Text(
-            "Indicadores do Curso",
-            style: TextStyle(
-              decoration: TextDecoration.none,
-              decorationStyle: TextDecorationStyle.dotted,
-              fontSize: 20,
-              color: Colors.black87,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            _Descricao(),
+            const SizedBox(height: 20),
+            const SizedBox(
+              child: Text(
+                "Indicadores do Curso",
+                style: TextStyle(
+                  decoration: TextDecoration.none,
+                  decorationStyle: TextDecorationStyle.dotted,
+                  fontSize: 20,
+                  color: Colors.black87,
+                ),
+              ),
             ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        _InfoCurso(),
-        const SizedBox(height: 50),
-        _BotaoVoltar(),
-        const SizedBox(height: 20),
-      ],
-    ))));
+            const SizedBox(height: 20),
+            _InfoCurso(),
+            const SizedBox(height: 50),
+          ],
+        ))));
   }
 }
 
@@ -181,37 +181,5 @@ class _Descricao extends StatelessWidget {
       width: 300,
       height: 300,
     );
-  }
-}
-
-class _BotaoVoltar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Column(
-      children: <Widget>[
-        InkWell(
-          onTap: () => Navigator.of(context).pushNamed('/'),
-          child: Ink(
-              decoration: BoxDecoration(
-                color: const Color(0xff0303ff),
-                border: Border.all(color: const Color(0xff0303ff)),
-              ),
-              child: const Expanded(
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 123),
-                      child: Text(
-                        'VOLTAR',
-                        style: TextStyle(
-                          decoration: TextDecoration.none,
-                          decorationStyle: TextDecorationStyle.dotted,
-                          fontSize: 12.0,
-                          color: Colors.white,
-                        ),
-                      )))),
-        )
-      ],
-    ));
   }
 }

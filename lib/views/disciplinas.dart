@@ -10,11 +10,12 @@ class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: ListSearch(),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Selecionar Disciplinas"),
+      ),
+      body: Center(
+        child: ListSearch(),
       ),
     );
   }
@@ -28,7 +29,7 @@ class ListSearchState extends State<ListSearch> {
   TextEditingController _textController = TextEditingController();
   final _saved = <String>[];
   final _biggerFont = TextStyle(fontSize: 18);
-  static final mainDataList = listas();
+  static final mainDataList = lista_cadeira;
 
   List<String> newDataList = List.from(mainDataList);
 
@@ -48,12 +49,11 @@ class ListSearchState extends State<ListSearch> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4.0),
       ),
-      backgroundColor: Colors.blue,
+      backgroundColor: const Color(0xff0303ff),
     );
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Image.asset("assets/images/logo1.png", height: 150),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -107,32 +107,6 @@ class ListSearchState extends State<ListSearch> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const MenuPage()),
-                        );
-                      },
-                      child: Text(
-                        'VOLTAR',
-                        style: TextStyle(
-                          color:  Colors.white,
-                          fontSize: 12.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 0.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: TextButton(
-                      style: flatButtonStyle,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
                               builder: (context) => const count()),
                         );
                         cadeiras_cursadas = _saved;
@@ -140,7 +114,7 @@ class ListSearchState extends State<ListSearch> {
                       child: Text(
                         'PROXIMO',
                         style: TextStyle(
-                          color:  Colors.white,
+                          color: Colors.white,
                           fontSize: 12.0,
                         ),
                       ),
@@ -164,7 +138,7 @@ class ListSearchState extends State<ListSearch> {
       ),
       trailing: Icon(
         alreadySaved ? Icons.check_box : Icons.check_box_outline_blank,
-        color: alreadySaved ? Colors.blue : null,
+        color: alreadySaved ? Color(0xff0303ff) : null,
         semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
       ),
       onTap: () {
