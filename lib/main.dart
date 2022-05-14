@@ -5,8 +5,7 @@ import 'package:projeto_sigma/views/app_widget.dart';
 import 'firebase_config.dart';
 import 'package:projeto_sigma/views/code.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
   var db = FirebaseFirestore.instance.collection("lista_disciplina");
@@ -19,13 +18,19 @@ void main() async{
       cont++;
     }
   });*/
-  for(var doc in result.docs){
+
+  for (var doc in result.docs) {
     //lista_cadeira.add(doc['nome']);
     lista_cadeira.add(doc['nome']);
+    lista_comentario.add(doc['comentario']);
     cont++;
+    //print(doc['comentario']);
   }
-  runApp(new AppWidget());//AppWidget()
+
+  runApp(new AppWidget()); //AppWidget()
 }
+
+
 
 /*listas() {
   FirebaseFirestore db = FirebaseFirestore.instance;
