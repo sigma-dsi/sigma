@@ -5,7 +5,7 @@ import 'code.dart';
 import 'disciplinas.dart';
 
 TextEditingController valor = TextEditingController();
-var qtdCadeiras;
+var qtdCadeiras = 0;
 
 class count extends StatelessWidget {
   const count({Key? key}) : super(key: key);
@@ -89,11 +89,6 @@ class count extends StatelessWidget {
                                   builder: (context) => const IndicacaoDisc()),
                             );
                             qtdCadeiras = int.parse(valor.text);
-                            print(qtdCadeiras);
-                            print(cadeiras_cursadas);
-                            for(var el in lista_cadeira){
-                              print(el.runtimeType);
-                            }
                           },
                           child: Text(
                             'PROXIMO',

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'count.dart';
 
 class MenuPage extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = '/menu';
   const MenuPage({Key? key}) : super(key: key);
 
   @override
@@ -37,7 +38,9 @@ class _MenuPageState extends State<MenuPage> {
               Navigator.of(context).pushNamed('/forum');
             }
             if (index == 3) {
-              Navigator.of(context).pushNamed('/indicacao');
+              qtdCadeiras == 0
+                  ? _showDialog(context)
+                  : Navigator.of(context).pushNamed('/indicacao');
             }
             if (index == 4) {
               Navigator.of(context).pushNamed('/gradeAtual');
@@ -104,6 +107,29 @@ class _MenuPageState extends State<MenuPage> {
           ),
         ],
       ),
+    );
+  }
+
+  void _showDialog(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // retorna um objeto do tipo Dialog
+        return AlertDialog(
+          title: new Text("Tela de indicação vazia!"),
+          content: new Text(
+              "Por favor, adicione as disciplinas na tela de Selecionar Disciplinas."),
+          actions: <Widget>[
+            // define os botões na base do dialogo
+            new FlatButton(
+              child: new Text("Fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -9,7 +9,7 @@ class BotaoVoltar extends StatelessWidget {
         child: Column(
       children: <Widget>[
         InkWell(
-          onTap: () => Navigator.of(context).pushNamed('/'),
+          onTap: () => Navigator.of(context).pushNamed('/menu'),
           child: Ink(
               decoration: BoxDecoration(
                 color: const Color(0xff0303ff),

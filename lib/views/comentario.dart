@@ -14,6 +14,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
   final _form = GlobalKey<FormState>();
   final _valor = TextEditingController();
   final coment = <Disciplina>[];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,4 +66,14 @@ class _ComentarioPageState extends State<ComentarioPage> {
           ),
         ));
   }
+
+  // Grid() {
+  //   return  GridView.count(
+  //             crossAxisCount: 2,
+  //             padding: const EdgeInsets.all(2),
+  //             children: [
+
+  //             ],
+  //           ),
+  // }
 }

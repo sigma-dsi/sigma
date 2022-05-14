@@ -8,6 +8,7 @@ import 'disciplinas.dart';
 import 'package:projeto_sigma/views/comentario.dart';
 import 'loginscreen.dart';
 import 'comentario.dart';
+import 'menu_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -24,7 +25,8 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          '/': (context) => LoginScreen(), //LoginScreen()
+          '/': (context) => LoginScreen(),
+          '/menu': (context) => const MenuPage(), //LoginScreen()
           '/selcionarDisc': (context) => const count(),
           '/descricao': (context) => const CursoDesc(),
           '/gradeAtual': (context) => const GradeAtual(),
