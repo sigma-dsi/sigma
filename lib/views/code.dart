@@ -25,3 +25,4 @@ List<String> lista_cadeira = [];
 final List<dynamic> lista_comentario = [];
 final cadeirasCount = qtdCadeiras;
 final cursadasDisciplinas = cadeiras_cursadas;
+var usuario;

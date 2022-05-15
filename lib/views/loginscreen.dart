@@ -195,13 +195,13 @@ class LoginScreen extends StatelessWidget {
           auth.signInWithEmailAndPassword(
               email: email.text, password: senha.text);
           User? userAtual = auth.currentUser;
+          usuario = userAtual;
           if (userAtual != null) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const MenuPage()),
             );
             auth.signOut();
-            print(lista_cadeira);
           } else {
             print('desloged');
           }

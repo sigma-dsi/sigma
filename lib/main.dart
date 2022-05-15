@@ -9,7 +9,7 @@ import 'package:projeto_sigma/views/code.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
-  var db = FirebaseFirestore.instance.collection("lista_disciplina_teste");
+  var db = FirebaseFirestore.instance.collection("forum_array");
   var result = await db.get();
   for (var doc in result.docs) {
     lista_cadeira.add(doc['nome']);
@@ -24,12 +24,13 @@ void main() async {
     tabela_firebase.add(
       Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc['comentario'])
     );
+    print(result_forum);
    }
-  for(var el in tabela_firebase){
+  /*for(var el in tabela_firebase){
     print(el.usuario);
     print(el.nome);
     print(el.comentario);
-  }
+  }*/
   
 
   runApp(new AppWidget()); //AppWidget()
@@ -97,15 +98,5 @@ void main() async {
     .doc('$cont')
     .set({'nome':el});
     cont += 1;
-  }
-}*/
-
-/*rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if
-          request.time < timestamp.date(2022, 6, 1);
-    }
   }
 }*/
