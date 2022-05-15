@@ -2,6 +2,7 @@ import 'disciplinas.dart';
 import 'count.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:projeto_sigma/models/list_disciplinas.dart';
 
 codeCadeiras(cadeirasCount, cursadasDisciplinas, lista_cadeiras) {
   List lista_discente = lista_cadeiras;
@@ -19,6 +20,7 @@ codeCadeiras(cadeirasCount, cursadasDisciplinas, lista_cadeiras) {
   return cadeirasprint;
 }
 
+List<Disciplina> tabela_firebase = [];
 List<String> lista_cadeira = [];
 final List<dynamic> lista_comentario = [];
 final cadeirasCount = qtdCadeiras;

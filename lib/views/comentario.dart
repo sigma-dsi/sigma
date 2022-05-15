@@ -37,7 +37,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
                 child: Container(
                   padding: EdgeInsets.all(20.0),
                   alignment: Alignment.centerLeft,
-                  child: Text(widget.disciplina.comentario,
+                  child: Text('oi',//widget.disciplina.comentario,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         decoration: TextDecoration.none,

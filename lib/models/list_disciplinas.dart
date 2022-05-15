@@ -1,9 +1,11 @@
 class Disciplina {
   String nome;
-  String comentario;
+  List usuario;
+  List comentario;
 
   Disciplina({
     required this.nome,
+    required this.usuario,
     required this.comentario,
   });
 }

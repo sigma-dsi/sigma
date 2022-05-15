@@ -1,7 +1,9 @@
 import '../models/list_disciplinas.dart';
+import '../views/code.dart';
 
 class DisciplinaRepository {
-  static List<Disciplina> tabela = [
+  static List<Disciplina> tabela = tabela_firebase;
+  /*[
     Disciplina(
         nome: "Sustentabilidade em Sistemas de Informação",
         comentario: 'Disciplina teorica'),
@@ -75,5 +77,5 @@ class DisciplinaRepository {
         nome:
             "Optativa VI: Modelagem Matemático-Computacional aplicada a epidemiologia",
         comentario: ''),
-  ];
+  ];*/
 }
