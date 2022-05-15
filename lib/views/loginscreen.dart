@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:projeto_sigma/views/code.dart';
 
-
 class LoginScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final email = TextEditingController();
@@ -52,52 +51,41 @@ class LoginScreen extends StatelessWidget {
         Text(
           'Email',
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold
-          ),
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 10),
         Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 6,
-                offset: Offset(0,2)
-              )
-            ]
-          ),
-          height: 60,
-          child: TextFormField(
-            controller: email,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14),
-              prefixIcon: Icon(
-                Icons.email,
-                color: Color(0xff0303ff),
-              ),
-              hintText: 'Email',
-              hintStyle: TextStyle(
-                color: Colors.black38
-              )
-            ),
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(
-              color: Colors.black87
-            ),
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'informe o email corretamente';
-              }
-              return null;
-            },
-          )
-        )
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 6,
+                      offset: Offset(0, 2))
+                ]),
+            height: 60,
+            child: TextFormField(
+              controller: email,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Color(0xff0303ff),
+                  ),
+                  hintText: 'Email',
+                  hintStyle: TextStyle(color: Colors.black38)),
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(color: Colors.black87),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'informe o email corretamente';
+                }
+                return null;
+              },
+            ))
       ],
     );
   }
@@ -109,51 +97,42 @@ class LoginScreen extends StatelessWidget {
         Text(
           'Password',
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold
-          ),
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 10),
         Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 6,
-                offset: Offset(0,2)
-              )
-            ]
-          ),
-          height: 60,
-          child: TextFormField(
-            controller: senha,
-            obscureText: true,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Color(0xff0303ff),
-              ),
-              hintText: 'Password',
-              hintStyle: TextStyle(
-                color: Colors.black38
-              )
-            ),
-            validator: (value) {
-              if (value!.isEmpty) {
-                return 'Informa sua senha';
-              } else if (value.length < 6) {
-                return 'Sua senha deve ter no mínimo 6 caracteres';
-              }
-              return null;
-            },
-          )
-        )
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 6,
+                      offset: Offset(0, 2))
+                ]),
+            height: 60,
+            child: TextFormField(
+              controller: senha,
+              obscureText: true,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14),
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Color(0xff0303ff),
+                  ),
+                  hintText: 'Password',
+                  hintStyle: TextStyle(color: Colors.black38)),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Informa sua senha';
+                } else if (value.length < 6) {
+                  return 'Sua senha deve ter no mínimo 6 caracteres';
+                }
+                return null;
+              },
+            ))
       ],
     );
   }
@@ -168,10 +147,7 @@ class LoginScreen extends StatelessWidget {
         onPressed: () => print("Forgot Password pressed"),
         child: Text(
           'Forgot Password?',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
@@ -195,10 +171,7 @@ class LoginScreen extends StatelessWidget {
           ),
           Text(
             'Remember me',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold
-            ),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -207,27 +180,25 @@ class LoginScreen extends StatelessWidget {
 
   Widget buildLoginBtn(context) {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
-      elevation: 5,
-      padding: EdgeInsets.all(15),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15)
-      ),
-      backgroundColor: Colors.white
-      //primary: Colors.white
-    );
+        elevation: 5,
+        padding: EdgeInsets.all(15),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        backgroundColor: Colors.white
+        //primary: Colors.white
+        );
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: TextButton(
         style: flatButtonStyle,
         onPressed: () {
-          auth.signInWithEmailAndPassword(email: email.text, password: senha.text);
+          auth.signInWithEmailAndPassword(
+              email: email.text, password: senha.text);
           User? userAtual = auth.currentUser;
-          if(userAtual != null){
+          if (userAtual != null) {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) => const MenuPage()),
+              MaterialPageRoute(builder: (context) => const MenuPage()),
             );
             auth.signOut();
             print(lista_cadeira);
@@ -238,10 +209,9 @@ class LoginScreen extends StatelessWidget {
         child: Text(
           'LOGIN',
           style: TextStyle(
-            color: Color(0xff0303ff),
-            fontSize: 18,
-            fontWeight: FontWeight.bold
-          ),
+              color: Color(0xff0303ff),
+              fontSize: 18,
+              fontWeight: FontWeight.bold),
         ),
       ),
     );
@@ -256,20 +226,17 @@ class LoginScreen extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t have an Account? ',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w500
-              )
-            ),
+                text: 'Don\'t have an Account? ',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500)),
             TextSpan(
-              text: 'Sign Up',
+              text: 'Sigma',
               style: TextStyle(
-                color:  Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold
-              ),
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -289,45 +256,39 @@ class LoginScreen extends StatelessWidget {
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
                       Color(0xff0303ff),
                       Color(0xff0303ff),
                       Color(0xff0303ff),
                       Color(0xff0303ff),
-                    ]
-                  )
-                ),
+                    ])),
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 25,
-                    vertical: 120
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 120),
                   key: formKey,
                   child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Sign In',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Sign In',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    SizedBox(height: 50),
-                    buildEmail(),
-                    SizedBox(height: 20),
-                    buildPassword(),
-                    buildForgotPassBtn(),
-                    buildRememberCB(),
-                    buildLoginBtn(context),
-                    buildSignUpBtn(),
-                  ],
-                ),
+                      SizedBox(height: 50),
+                      buildEmail(),
+                      SizedBox(height: 20),
+                      buildPassword(),
+                      buildForgotPassBtn(),
+                      buildRememberCB(),
+                      buildLoginBtn(context),
+                      buildSignUpBtn(),
+                    ],
+                  ),
                 ),
               )
             ],

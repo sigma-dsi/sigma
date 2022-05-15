@@ -1,6 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 import '../models/list_disciplinas.dart';
+import '../firebase_config.dart';
 
 class ComentarioPage extends StatefulWidget {
   Disciplina disciplina;
@@ -14,12 +17,15 @@ class _ComentarioPageState extends State<ComentarioPage> {
   final _form = GlobalKey<FormState>();
   final _valor = TextEditingController();
   final coment = <Disciplina>[];
+  var db = FirebaseFirestore.instance.collection("lista_disciplina");
+  final nome_disciplina =
+      FirebaseFirestore.instance.collection("lista_disciplina").snapshots();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.disciplina.nome),
+          title: Text('teste'),
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -62,10 +68,17 @@ class _ComentarioPageState extends State<ComentarioPage> {
                 border: OutlineInputBorder(),
                 labelText: 'Adicione seu comentário',
                 suffixIcon: Icon(Icons.send)),
+            onTap: itemSended(_valor, nome_disciplina),
             validator: (value) {},
           ),
         ));
   }
+
+  itemSended(comentario, disciplina) {
+    // db.add({
+    //   'comentario': comentario
+  }
+}
 
   // Grid() {
   //   return  GridView.count(
@@ -76,4 +89,4 @@ class _ComentarioPageState extends State<ComentarioPage> {
   //             ],
   //           ),
   // }
-}
+

@@ -20,6 +20,6 @@ codeCadeiras(cadeirasCount, cursadasDisciplinas, lista_cadeiras) {
 }
 
 List<String> lista_cadeira = [];
-final List<String> lista_comentario = [];
+final List<dynamic> lista_comentario = [];
 final cadeirasCount = qtdCadeiras;
 final cursadasDisciplinas = cadeiras_cursadas;
