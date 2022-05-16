@@ -273,7 +273,7 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Sign In',
+                        'SIGMA',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,

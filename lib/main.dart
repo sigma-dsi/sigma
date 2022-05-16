@@ -9,31 +9,18 @@ import 'package:projeto_sigma/views/code.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
-  var db = FirebaseFirestore.instance.collection("forum_array");
+  var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");
   var result = await db.get();
+  Disciplina disciplina;
   for (var doc in result.docs) {
     lista_cadeira.add(doc['nome']);
     lista_comentario.add(doc['comentario']);
+    tabela_firebase.add(
+      Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
+    );
   }
 
-   var dbforum = FirebaseFirestore.instance.collection("forum_array");
-   var result_forum = await dbforum.get();
-   for (var doc in result_forum.docs){
-    //print('$doc["nome"]\n $doc["usuario"]');
-    Disciplina disciplina;
-    tabela_firebase.add(
-      Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc['comentario'])
-    );
-    print(result_forum);
-   }
-  /*for(var el in tabela_firebase){
-    print(el.usuario);
-    print(el.nome);
-    print(el.comentario);
-  }*/
-  
-
-  runApp(new AppWidget()); //AppWidget()
+  runApp(new AppWidget());
 }
 
 
@@ -90,13 +77,24 @@ void main() async {
     "Optativa III: Sistemas Colaborativos": false,
     "Optativa V: Introdução a Computação Quântica": false,
     "Optativa VII: Fundamentos de Criptografia": false,
-    "Optativa VIII: Modelagem Matemático-Computacional aplicada a epidemiologia": false
+    "Optativa VIII: Modelagem Matemático-Computacional aplicada a epidemiologia": false,
+    "TCC":false
   };
   int cont = 0;
+  List lista = [];
   for (var el in dic.keys) {
-    db.collection('lista_disciplina')
+    db.collection('comentario')
     .doc('$cont')
-    .set({'nome':el});
-    cont += 1;
+    .set({
+      "nome":el, 
+      "usuario":FieldValue.arrayUnion(lista), 
+      "comentario":{
+      "like":0,
+      "deslike":0,
+      "comentario":FieldValue.arrayUnion(lista), 
+      },
+      "indice":cont,
+      });
+    cont++;
   }
 }*/
