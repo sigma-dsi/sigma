@@ -9,29 +9,32 @@ import 'package:projeto_sigma/views/code.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
-  var db = FirebaseFirestore.instance.collection("forum_array");
+  var db = FirebaseFirestore.instance.collection("lista_Disciplinas");
   var result = await db.get();
   for (var doc in result.docs) {
     lista_cadeira.add(doc['nome']);
     lista_comentario.add(doc['comentario']);
   }
 
-   var dbforum = FirebaseFirestore.instance.collection("forum_array");
-   var result_forum = await dbforum.get();
-   for (var doc in result_forum.docs){
+  var dbforum = FirebaseFirestore.instance.collection("lista_Disciplinas");
+  var result_forum = await dbforum.get();
+  for (var doc in result_forum.docs) {
     //print('$doc["nome"]\n $doc["usuario"]');
     Disciplina disciplina;
-    tabela_firebase.add(
-      Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc['comentario'])
-    );
+    tabela_firebase.add(Disciplina(
+        nome: doc['nome'],
+        usuario: doc['usuario'],
+        comentario: doc['comentario'],
+        deslike: doc['deslike'],
+        like: doc['like'],
+        indice: doc['indice']));
     print(result_forum);
-   }
+  }
   /*for(var el in tabela_firebase){
     print(el.usuario);
     print(el.nome);
     print(el.comentario);
   }*/
-  
 
   runApp(new AppWidget()); //AppWidget()
 }
