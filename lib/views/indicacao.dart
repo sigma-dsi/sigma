@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_sigma/views/count.dart';
 import 'package:projeto_sigma/views/disciplinas.dart';
 import '../components/botao_voltar.dart';
-import 'code.dart';
+import '../repositories/code.dart';
 import 'count.dart';
 import 'disciplinas.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_sigma/views/code.dart';
+import 'package:projeto_sigma/repositories/code.dart';
 import 'package:projeto_sigma/views/count.dart';
 import 'package:projeto_sigma/views/menu_page.dart';
 import 'count.dart';

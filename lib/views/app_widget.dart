@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'count.dart';
+import 'cursadas.dart';
 import 'descricao_page.dart';
 import 'package:projeto_sigma/views/grade_atual.dart';
 import 'package:projeto_sigma/views/indicacao.dart';
@@ -34,6 +35,7 @@ class AppWidget extends StatelessWidget {
           '/forum': (context) => const ForumPage(),
           '/disciplina': (context) => const HomePage(),
           '/comentario': (context) => ComentarioPage(disciplina: disciplina),
+          '/cursadas': (context) => Cursadas(),
         });
   }
 }

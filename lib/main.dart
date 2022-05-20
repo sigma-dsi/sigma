@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_sigma/models/list_disciplinas.dart';
 import 'package:projeto_sigma/views/app_widget.dart';
 import 'firebase_config.dart';
-import 'package:projeto_sigma/views/code.dart';
+import 'package:projeto_sigma/repositories/code.dart';
 
 getfirebase() async{
   var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");

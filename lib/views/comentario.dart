@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 import '../models/list_disciplinas.dart';
-import 'code.dart';
+import '../repositories/code.dart';
 import '../firebase_config.dart';
 
 class ComentarioPage extends StatefulWidget {

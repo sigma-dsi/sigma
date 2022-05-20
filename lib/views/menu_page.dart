@@ -46,6 +46,7 @@ class _MenuPageState extends State<MenuPage> {
               Navigator.of(context).pushNamed('/gradeAtual');
             }
             if (index == 5) {
+              Navigator.of(context).pushNamed('/cursadas');
               //6.item
             }
           },
@@ -102,6 +103,7 @@ class _MenuPageState extends State<MenuPage> {
                 cardItem("Fórum", 2),
                 cardItem("Tela de Indicação", 3),
                 cardItem("Grade Atual", 4),
+                cardItem("Disciplinas Cursadas", 5),
               ],
             ),
           ),

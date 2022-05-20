@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 import 'package:projeto_sigma/views/indicacao.dart';
-import 'code.dart';
+import '../repositories/code.dart';
 import 'disciplinas.dart';
 
 TextEditingController valor = TextEditingController();

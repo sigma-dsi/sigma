@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:projeto_sigma/views/code.dart';
+import 'package:projeto_sigma/repositories/code.dart';
 
 class DefaultFirebaseConfig {
   static FirebaseOptions? get platformOptions {
