@@ -1,3 +1,5 @@
+import 'dart:async';
+import '../main.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -19,25 +21,38 @@ class _ComentarioPageState extends State<ComentarioPage> {
   final _form = GlobalKey<FormState>();
   final coment = <Disciplina>[];
   var user = usuario.email;
+  List lista_comentario = [];
+  List lista_email = [];
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.disciplina.nome),
-        ),
-        body: SingleChildScrollView(
+  void initState(){
+    lista_comentario = widget.disciplina.comentario;
+    lista_email = widget.disciplina.usuario;
+    super.initState();
+  }
+
+  void lista_coment(){
+    setState((){
+      lista_comentario;
+      lista_email;
+    });
+  }
+
+  _buildbody() {
+    return SingleChildScrollView(
           child: Center(
               child: Column(
                 children: <Widget>[
                   //buildlista(),
                   //const SizedBox(height: 50),
-                  for(var comentario in widget.disciplina.comentario) Card(
+                  for(int i = 0; i < lista_comentario.length; i++) Card(
                     elevation: 10,
                     child: Container(
                       padding: EdgeInsets.all(20.0),
                       alignment: Alignment.centerLeft,
-                      child: Text(comentario),
+                      child: ListTile(
+                        title: Text(lista_comentario[i]),
+                        subtitle: Text(lista_email[i])
+                      ),
                     ),
                   ),
                   //const SizedBox(height: 50),
@@ -67,38 +82,74 @@ class _ComentarioPageState extends State<ComentarioPage> {
                           color: Colors.white,
                         ),
                         mini: true,
-                        onPressed: () => itemSended(_newComentario, user),
+                        onPressed: () {
+                          itemSended(_newComentario, user);
+                        }
                       )
                     ],
                   )
                 ],
               )),
-        )
+        );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(widget.disciplina.nome),
+        ),
+        body:  _buildbody()
       );
     }
 
-    /*Widget strembuilder(){
-      return StreamBuilder(
-          stream: FirebaseFirestore.instance
-              .collection("lista_Disciplina")
-              .doc(indice).snapshots(),
-          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-
+    _body() {
+      return FutureBuilder<String>(
+        future: getfirebase(),
+        builder: (context, snapshot) {
+          if(snapshot.hasError) {
+            return Center(child:
+              Text("Erro ao acessar os dados")
+            );
           }
-      )
-    }*/
 
-  itemSended(_newComentario, user) {
+          if(!snapshot.hasData){
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return _buildbody();
+        }
+
+      );
+    }
+
+  //Aqui onde tem de chamar Disciplina
+  itemSended(_newComentario, user) async{
     String indice = widget.disciplina.indice.toString();
-    List comentario = widget.disciplina.comentario.toList();
-    comentario.add(_newComentario.text);
-    List usuarios = widget.disciplina.usuario.toList();
-    usuarios.add(user);
-
+    lista_comentario.add(_newComentario.text);
+    lista_email.add(user);
+    lista_coment();
     FirebaseFirestore.instance.collection("lista_Disciplinas").doc(indice).update({
-      "comentario":comentario,
-      "usuario":usuarios,
+      "comentario":lista_comentario.toList(),
+      "usuario":lista_email.toList(),
     });
+    //List<Disciplina> comentarios =  await getcomentarios();
+    //_streamController.add(comentarios);
+  }
+
+  getcomentarios() async{
+    var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");
+    var result = await db.get();
+    Disciplina disciplina;
+    for (var doc in result.docs) {
+      tabela_firebase.add(
+        Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
+      );
+  }
+  List comentarios = await widget.disciplina.comentario;
+/*  List listaComentarios = widget.disciplina.comentario;
+  _streamController.add(listaComentarios);*/
   }
 }
-

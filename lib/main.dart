@@ -6,20 +6,23 @@ import 'package:projeto_sigma/views/app_widget.dart';
 import 'firebase_config.dart';
 import 'package:projeto_sigma/views/code.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
+getfirebase() async{
   var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");
   var result = await db.get();
-  Disciplina disciplina;
+  //Disciplina disciplina;
   for (var doc in result.docs) {
     lista_cadeira.add(doc['nome']);
     lista_comentario.add(doc['comentario']);
     tabela_firebase.add(
-      Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
+        Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
     );
   }
+}
 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
+  getfirebase();
   runApp(new AppWidget());
 }
 

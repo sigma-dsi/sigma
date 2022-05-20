@@ -68,13 +68,13 @@ class _ForumPageState extends State<ForumPage> {
               selected: selecionadas.contains(tabela[disciplina]),
               selectedTileColor: Colors.indigo[50],
               onLongPress: () {
-                setState(() {
+                setState(() =>
                   (selecionadas.contains(tabela[disciplina]))
                       ? selecionadas.remove(tabela[disciplina])
-                      : selecionadas.add(tabela[disciplina]);
-                });
+                      : selecionadas.add(tabela[disciplina])
+                );
               },
-              onTap: () => mostrarDetalhes(tabela[disciplina]),
+              onTap: () => mostrarDetalhes(tabela[disciplina])
             );
           }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
