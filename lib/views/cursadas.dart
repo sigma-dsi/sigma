@@ -32,23 +32,52 @@ class _CursadasState extends State<Cursadas> {
           ])),
         ));
   }
-}
 
-/*verifica_tela_vazia(context) {
-  if (cursadasDisciplinas.length == Null) {
-    return AlertDialog(
-      title: new Text("Não há historico de disciplinas cursadas"),
-      content: new Text(
-          "Por favor, adicione as disciplinas na tela de Selecionar Disciplinas."),
-      actions: <Widget>[
-        // define os botões na base do dialogo
-        new FlatButton(
-          child: new Text("Fechar"),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ],
+  void setState_cursadas() {
+    setState(() {
+      cursadasDisciplinas;
+    });
+  }
+
+  /*void _showDialog(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // retorna um objeto do tipo Dialog
+        return AlertDialog(
+          title: new Text("Tela de disciplinas cursadas vazia!"),
+          content: new Text(
+              "Por favor, adicione as disciplinas na tela de Selecionar Disciplinas."),
+          actions: <Widget>[
+            // define os botões na base do dialogo
+            new FlatButton(
+              child: new Text("Fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
-}*/
+
+  menssagem_erro(setState_cursadas) {
+    if (setState_cursadas != null) {
+      return Column(children: <Widget>[
+        for (int i = 0; i < setState_cursadas.lenght; i++)
+          Card(
+            elevation: 10,
+            child: Container(
+              padding: EdgeInsets.all(20.0),
+              alignment: Alignment.centerLeft,
+              child: ListTile(
+                  title: Text(setState_cursadas[i]), subtitle: Text(user)),
+            ),
+          )
+      ]);
+    } else {
+      return _showDialog(context);
+    }
+  }*/
+}
