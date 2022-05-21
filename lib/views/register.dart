@@ -163,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       width: double.infinity,
       child: TextButton(
         style: flatButtonStyle,
-        onPressed: () => print('$name, \n$email, \n$senha'),
+        onPressed: () => (''),
         child: Text(
           'CREATE',
           style: TextStyle(

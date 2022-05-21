@@ -58,7 +58,7 @@ class ListSearchState extends State<ListSearch> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Quantas disciplinas você \ndeseja cursar esse período ?',
+              Text('Selecione as disciplinas \n que obteve aprovação.',
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,

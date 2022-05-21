@@ -7,6 +7,7 @@ import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 import '../models/list_disciplinas.dart';
 import '../repositories/code.dart';
 import '../firebase_config.dart';
+import 'package:like_button/like_button.dart';
 
 class ComentarioPage extends StatefulWidget {
   Disciplina disciplina;
@@ -23,15 +24,17 @@ class _ComentarioPageState extends State<ComentarioPage> {
   var user = usuario.email;
   List lista_comentario = [];
   List lista_email = [];
+  int countLike = 0;
 
-  void initState(){
+  void initState() {
     lista_comentario = widget.disciplina.comentario;
     lista_email = widget.disciplina.usuario;
+    countLike = widget.disciplina.like;
     super.initState();
   }
 
-  void lista_coment(){
-    setState((){
+  void lista_coment() {
+    setState(() {
       lista_comentario;
       lista_email;
     });
@@ -39,58 +42,66 @@ class _ComentarioPageState extends State<ComentarioPage> {
 
   _buildbody() {
     return SingleChildScrollView(
-          child: Center(
-              child: Column(
-                children: <Widget>[
-                  //buildlista(),
-                  //const SizedBox(height: 50),
-                  for(int i = 0; i < lista_comentario.length; i++) Card(
-                    elevation: 10,
-                    child: Container(
-                      padding: EdgeInsets.all(20.0),
-                      alignment: Alignment.centerLeft,
-                      child: ListTile(
-                        title: Text(lista_comentario[i]),
-                        subtitle: Text(lista_email[i])
-                      ),
+      child: Center(
+          child: Column(
+        children: <Widget>[
+          //buildlista(),
+          //const SizedBox(height: 50),  child: ListTile(
+
+          for (int i = 0; i < lista_comentario.length; i++)
+            Card(
+                elevation: 10,
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  alignment: Alignment.centerLeft,
+                  child: ListTile(
+                      title: Text(lista_comentario[i]),
+                      subtitle: Text(lista_email[i])),
+                )),
+          LikeButton(
+              size: 15,
+              likeCount: countLike,
+              onTap: getLike(),
+              likeBuilder: (bool isLiked) {
+                return Icon(
+                  Icons.thumb_up_alt,
+                  color: isLiked ? Color(0xff0303ff) : Colors.grey,
+                );
+              }),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.center,
+                width: 300,
+                height: 300,
+                child: Form(
+                  key: _form,
+                  child: TextFormField(
+                    controller: _newComentario,
+                    style: const TextStyle(fontSize: 22),
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Adicione seu comentário',
                     ),
                   ),
-                  //const SizedBox(height: 50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        alignment: Alignment.center,
-                        width: 300,
-                        height: 300,
-                        child: Form(
-                          key: _form,
-                          child: TextFormField(
-                            controller: _newComentario,
-                            style: const TextStyle(fontSize: 22),
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: 'Adicione seu comentário',
-                            ),
-                          ),
-                        ),
-                      ),
-                      FloatingActionButton(
-                        backgroundColor: Color(0xff075E54),
-                        child: Icon(
-                          Icons.send,
-                          color: Colors.white,
-                        ),
-                        mini: true,
-                        onPressed: () {
-                          itemSended(_newComentario, user);
-                        }
-                      )
-                    ],
-                  )
-                ],
-              )),
-        );
+                ),
+              ),
+              FloatingActionButton(
+                  backgroundColor: Color(0xff0303ff),
+                  child: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                  ),
+                  mini: true,
+                  onPressed: () {
+                    itemSended(_newComentario, user);
+                  })
+            ],
+          )
+        ],
+      )),
+    );
   }
 
   @override
@@ -99,56 +110,65 @@ class _ComentarioPageState extends State<ComentarioPage> {
         appBar: AppBar(
           title: Text(widget.disciplina.nome),
         ),
-        body:  _buildbody()
-      );
-    }
+        body: _buildbody());
+  }
 
-    _body() {
-      return FutureBuilder<String>(
+  _body() {
+    return FutureBuilder<String>(
         future: getfirebase(),
         builder: (context, snapshot) {
-          if(snapshot.hasError) {
-            return Center(child:
-              Text("Erro ao acessar os dados")
-            );
+          if (snapshot.hasError) {
+            return Center(child: Text("Erro ao acessar os dados"));
           }
 
-          if(!snapshot.hasData){
+          if (!snapshot.hasData) {
             return Center(
               child: CircularProgressIndicator(),
             );
           }
 
           return _buildbody();
-        }
-
-      );
-    }
+        });
+  }
 
   //Aqui onde tem de chamar Disciplina
-  itemSended(_newComentario, user) async{
+  itemSended(_newComentario, user) async {
     String indice = widget.disciplina.indice.toString();
     lista_comentario.add(_newComentario.text);
     lista_email.add(user);
     lista_coment();
-    FirebaseFirestore.instance.collection("lista_Disciplinas").doc(indice).update({
-      "comentario":lista_comentario.toList(),
-      "usuario":lista_email.toList(),
+    FirebaseFirestore.instance.collection("Comentario").doc(indice).update({
+      "comentario": lista_comentario.toList(),
+      "usuario": lista_email.toList(),
     });
     //List<Disciplina> comentarios =  await getcomentarios();
     //_streamController.add(comentarios);
   }
 
-  getcomentarios() async{
-    var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");
+  getLike() async {
+    String likeFirebase = widget.disciplina.like.toString();
+    countLike += 1;
+
+    await FirebaseFirestore.instance
+        .collection("Comentario")
+        .doc(likeFirebase)
+        .update({'like': FieldValue.increment(1)});
+  }
+
+  getcomentarios() async {
+    var db = FirebaseFirestore.instance.collection('comentario');
     var result = await db.get();
     Disciplina disciplina;
     for (var doc in result.docs) {
-      tabela_firebase.add(
-        Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
-      );
-  }
-  List comentarios = await widget.disciplina.comentario;
+      tabela_firebase.add(Disciplina(
+          nome: doc['nome'],
+          usuario: doc['usuario'],
+          comentario: doc['comentario'].collection('comentario'),
+          indice: doc['indice'],
+          like: doc['comentario'].collection('comentario').doc('like'),
+          deslike: doc['comentario'].doc('comentario').doc('deslike')));
+    }
+    List comentarios = await widget.disciplina.comentario;
 /*  List listaComentarios = widget.disciplina.comentario;
   _streamController.add(listaComentarios);*/
   }

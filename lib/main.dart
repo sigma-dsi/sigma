@@ -6,16 +6,20 @@ import 'package:projeto_sigma/views/app_widget.dart';
 import 'firebase_config.dart';
 import 'package:projeto_sigma/repositories/code.dart';
 
-getfirebase() async{
-  var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");
+getfirebase() async {
+  var db = FirebaseFirestore.instance.collection('lista_Disciplinas');
   var result = await db.get();
-  //Disciplina disciplina;
+
   for (var doc in result.docs) {
     lista_cadeira.add(doc['nome']);
     lista_comentario.add(doc['comentario']);
-    tabela_firebase.add(
-        Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
-    );
+    tabela_firebase.add(Disciplina(
+        nome: doc['nome'],
+        usuario: doc['usuario'],
+        comentario: doc['comentario'],
+        indice: doc['indice'],
+        like: doc['like'],
+        deslike: doc['deslike']));
   }
 }
 

@@ -21,7 +21,7 @@ class count extends StatelessWidget {
     );
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Disciplinas Indicadass"),
+          title: const Text("Disciplinas Indicadas"),
         ),
         body: SingleChildScrollView(
           child: Stack(
