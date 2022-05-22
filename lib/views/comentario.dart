@@ -25,6 +25,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
   List lista_comentario = [];
   List lista_email = [];
   int countLike = 0;
+  bool isLiked = false;
 
   void initState() {
     lista_comentario = widget.disciplina.comentario;
@@ -57,8 +58,20 @@ class _ComentarioPageState extends State<ComentarioPage> {
                 )),
           LikeButton(
               size: 15,
+              isLiked: isLiked,
               likeCount: countLike,
-              onTap: onLikeButtonTapped,
+              onTap: (isLiked) async {
+                this.isLiked = !isLiked;
+                countLike += this.isLiked ? 1 : -1;
+
+                String likeFirebase = widget.disciplina.like.toString();
+                await FirebaseFirestore.instance
+                    .collection("Comentario")
+                    .doc(likeFirebase)
+                    .update({'like': countLike});
+
+                return !isLiked;
+              },
               likeBuilder: (bool isLiked) {
                 return Icon(
                   Icons.thumb_up_alt,
@@ -144,23 +157,22 @@ class _ComentarioPageState extends State<ComentarioPage> {
 
   // getLike() async {
   //   String likeFirebase = widget.disciplina.like.toString();
-
   //   await FirebaseFirestore.instance
   //       .collection("Comentario")
   //       .doc(likeFirebase)
   //       .update({'like': FieldValue.increment(1)});
   // }
 
-  Future<bool> onLikeButtonTapped(bool isLiked) async {
-    String likeFirebase = widget.disciplina.like.toString();
+  // Future<int> onLikeButtonTapped( int countLike) async {
+  //   String likeFirebase = widget.disciplina.like.toString();
 
-    await FirebaseFirestore.instance
-        .collection("Comentario")
-        .doc(likeFirebase)
-        .update({'like': FieldValue.increment(1)});
+  //   await FirebaseFirestore.instance
+  //       .collection("Comentario")
+  //       .doc(likeFirebase)
+  //       .update({'like': FieldValue.increment(1)});
 
-    return !isLiked;
-  }
+  //   return countLike;
+  // }
 
   getcomentarios() async {
     var db = FirebaseFirestore.instance.collection('comentario');
