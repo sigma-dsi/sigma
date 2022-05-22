@@ -45,9 +45,6 @@ class _ComentarioPageState extends State<ComentarioPage> {
       child: Center(
           child: Column(
         children: <Widget>[
-          //buildlista(),
-          //const SizedBox(height: 50),  child: ListTile(
-
           for (int i = 0; i < lista_comentario.length; i++)
             Card(
                 elevation: 10,
@@ -61,7 +58,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
           LikeButton(
               size: 15,
               likeCount: countLike,
-              onTap: getLike(),
+              onTap: onLikeButtonTapped,
               likeBuilder: (bool isLiked) {
                 return Icon(
                   Icons.thumb_up_alt,
@@ -145,14 +142,24 @@ class _ComentarioPageState extends State<ComentarioPage> {
     //_streamController.add(comentarios);
   }
 
-  getLike() async {
+  // getLike() async {
+  //   String likeFirebase = widget.disciplina.like.toString();
+
+  //   await FirebaseFirestore.instance
+  //       .collection("Comentario")
+  //       .doc(likeFirebase)
+  //       .update({'like': FieldValue.increment(1)});
+  // }
+
+  Future<bool> onLikeButtonTapped(bool isLiked) async {
     String likeFirebase = widget.disciplina.like.toString();
-    countLike += 1;
 
     await FirebaseFirestore.instance
         .collection("Comentario")
         .doc(likeFirebase)
         .update({'like': FieldValue.increment(1)});
+
+    return !isLiked;
   }
 
   getcomentarios() async {
