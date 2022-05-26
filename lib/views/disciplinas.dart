@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:projeto_sigma/repositories/code.dart';
 import 'package:projeto_sigma/views/count.dart';
 import 'package:projeto_sigma/views/menu_page.dart';
+import 'package:projeto_sigma/firebase_config.dart';
 import 'count.dart';
-
-var cadeiras_cursadas;
+import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -109,7 +109,8 @@ class ListSearchState extends State<ListSearch> {
                           MaterialPageRoute(
                               builder: (context) => const count()),
                         );
-                        cadeiras_cursadas = _saved;
+                        CursadasRepository().getAddCadeiras(_saved);
+                        getTemCursadas();
                       },
                       child: Text(
                         'PROXIMO',

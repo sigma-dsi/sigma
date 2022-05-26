@@ -31,7 +31,7 @@ class AppWidget extends StatelessWidget {
           '/selcionarDisc': (context) => const count(),
           '/descricao': (context) => const CursoDesc(),
           '/gradeAtual': (context) => const GradeAtual(),
-          '/indicacao': (context) => const IndicacaoDisc(),
+          '/indicacao': (context) => IndicacaoDisc(),
           '/forum': (context) => const ForumPage(),
           '/disciplina': (context) => const HomePage(),
           '/comentario': (context) => ComentarioPage(disciplina: disciplina),

@@ -86,7 +86,7 @@ class count extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const IndicacaoDisc()),
+                                  builder: (context) => IndicacaoDisc()),
                             );
                             qtdCadeiras = int.parse(valor.text);
                           },

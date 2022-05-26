@@ -7,5 +7,17 @@ class DisciplinaRepository {
 }
 
 class CursadasRepository {
-  static List<Cursadas> cusadas_disc = cursadasDisciplinas;
+  static List cursadas_disc = [];
+  static List usuariosFirebase = [];
+
+  getAddCadeiras(lista) {
+    bool temCadeira;
+    for(var cadeira in lista){
+      temCadeira = cursadas_disc.contains(cadeira);
+      if(temCadeira == false) {
+        cursadas_disc.add(cadeira);
+      }
+    }
+  }
+
 }

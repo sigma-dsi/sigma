@@ -4,6 +4,7 @@ import 'package:projeto_sigma/views/menu_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:projeto_sigma/repositories/code.dart';
+import 'package:projeto_sigma/firebase_config.dart';
 
 class LoginScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
@@ -12,37 +13,6 @@ class LoginScreen extends StatelessWidget {
   bool? isRememberMe = false;
   bool loading = false;
   FirebaseAuth auth = FirebaseAuth.instance;
-
-  login(String email, String password) async {
-    /*User? user;
-    try{
-      auth.signInWithEmailAndPassword(email: email, password: password);
-      user =  auth.currentUser;
-      print('logado com sucesso');
-    } on FirebaseAuthException catch(e) {
-      if (e.code == 'user-not-found') {
-        throw AuthException('Email não encontrado. Cadastre-se');
-      }
-      if (e.code == 'wrong-password') {
-        throw AuthException('Senha incorreta. Tente novamente');
-      }
-    }
-    /*if(user != null) {
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => const AppWidget()),
-      );
-    }
-    else {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => LoginScreen()),
-      );
-    }*/*/
-  }
 
   Widget buildEmail() {
     return Column(
@@ -202,6 +172,8 @@ class LoginScreen extends StatelessWidget {
               MaterialPageRoute(builder: (context) => const MenuPage()),
             );
             auth.signOut();
+            getcursadas();
+            getVerificaCursadasFirebase();
           } else {
             print('desloged');
           }

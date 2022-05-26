@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_sigma/repositories/code.dart';
 import 'count.dart';
+import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 
 class MenuPage extends StatefulWidget {
   static const routeName = '/menu';
@@ -38,15 +40,21 @@ class _MenuPageState extends State<MenuPage> {
               Navigator.of(context).pushNamed('/forum');
             }
             if (index == 3) {
+              var titulo = 'indicação';
+              var descricao = 'Por favor, adicione as disciplinas cursadas na tela de Selecionar Disciplinas.';
               qtdCadeiras == 0
-                  ? _showDialog(context)
+                  ? _showDialog(context, titulo, descricao)
                   : Navigator.of(context).pushNamed('/indicacao');
             }
             if (index == 4) {
               Navigator.of(context).pushNamed('/gradeAtual');
             }
             if (index == 5) {
-              Navigator.of(context).pushNamed('/cursadas');
+              var titulo = 'Disciplinas Cursadas';
+              var descricao = 'Por favor, adicione as disciplinas cursadas na tela de Selecionar Disciplinas.';
+              CursadasRepository.cursadas_disc == []
+              ? _showDialog(context, titulo, descricao)
+              : Navigator.of(context).pushNamed('/cursadas');
               //6.item
             }
           },
@@ -112,15 +120,14 @@ class _MenuPageState extends State<MenuPage> {
     );
   }
 
-  void _showDialog(context) {
+  void _showDialog(context, titulo, descricao) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // retorna um objeto do tipo Dialog
         return AlertDialog(
-          title: new Text("Tela de indicação vazia!"),
-          content: new Text(
-              "Por favor, adicione as disciplinas na tela de Selecionar Disciplinas."),
+          title: new Text("Tela de $titulo vazia!"),
+          content: new Text('$descricao'),
           actions: <Widget>[
             // define os botões na base do dialogo
             new FlatButton(

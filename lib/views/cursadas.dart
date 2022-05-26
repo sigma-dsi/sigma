@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_sigma/repositories/code.dart';
+import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 
 class Cursadas extends StatefulWidget {
   const Cursadas({Key? key}) : super(key: key);
@@ -18,14 +19,14 @@ class _CursadasState extends State<Cursadas> {
         body: SingleChildScrollView(
           child: Center(
               child: Column(children: <Widget>[
-            for (int i = 0; i < cursadasDisciplinas.length; i++)
+            for (int i = 0; i < CursadasRepository.cursadas_disc.length; i++)
               Card(
                 elevation: 10,
                 child: Container(
                   padding: EdgeInsets.all(20.0),
                   alignment: Alignment.centerLeft,
                   child: ListTile(
-                      title: Text(cursadasDisciplinas[i]),
+                      title: Text(CursadasRepository.cursadas_disc[i]),
                       subtitle: Text(user)),
                 ),
               )
@@ -35,7 +36,7 @@ class _CursadasState extends State<Cursadas> {
 
   void setState_cursadas() {
     setState(() {
-      cursadasDisciplinas;
+      CursadasRepository.cursadas_disc;
     });
   }
 

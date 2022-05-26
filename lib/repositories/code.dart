@@ -3,9 +3,11 @@ import '../views/count.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:projeto_sigma/models/list_disciplinas.dart';
+import '../models/cursadas_disc.dart';
+import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 
 codeCadeiras(cadeirasCount, cursadasDisciplinas, lista_cadeiras) {
-  List lista_discente = lista_cadeiras;
+  List lista_discente = lista_cadeiras; 
 
   for (var cadeira in cursadasDisciplinas) {
     lista_discente.remove(cadeira);
@@ -20,9 +22,21 @@ codeCadeiras(cadeirasCount, cursadasDisciplinas, lista_cadeiras) {
   return cadeirasprint;
 }
 
+getVerificaCursadasFirebase(){
+  if (cursadasbool == true) {
+    for (var disciplina in CursadasRepository.cursadas_disc){
+      lista_cadeira.remove(disciplina);
+      print(disciplina);
+    }
+  } else {
+    print("não tá entrando");
+  }
+}
+
+var usuario;
+bool cursadasbool = false;
 List<Disciplina> tabela_firebase = [];
 List<String> lista_cadeira = [];
 final List<dynamic> lista_comentario = [];
 final cadeirasCount = qtdCadeiras;
-final cursadasDisciplinas = cadeiras_cursadas;
-var usuario;
+
