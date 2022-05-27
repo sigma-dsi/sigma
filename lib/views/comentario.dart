@@ -34,8 +34,8 @@ class _ComentarioPageState extends State<ComentarioPage> {
     setState(() {
       lista_comentario;
       lista_email;
-      like;
-      deslike;
+      like = widget.disciplina.like;
+      deslike = widget.disciplina.deslike;
     });
   }
 
@@ -188,6 +188,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
   deslikeUpdated() async {
     String indice = widget.disciplina.indice.toString();
     deslike += 1;
+    widget.disciplina.deslike += 1;
     lista_coment();
     var db = await FirebaseFirestore.instance
         .collection("lista_disciplinas")
@@ -198,6 +199,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
   likeUpdated() async {
     String indice = widget.disciplina.indice.toString();
     like += 1;
+    widget.disciplina.like += 1;
     lista_coment();
     var db = await FirebaseFirestore.instance
         .collection("lista_disciplinas")
