@@ -44,77 +44,78 @@ class _ComentarioPageState extends State<ComentarioPage> {
 
   _buildbody() {
     return SingleChildScrollView(
-      child: Center(
+        child: Center(
+      child: Container(
+          margin: const EdgeInsets.only(top: 0.0),
           child: Column(
-        children: <Widget>[
-          //buildlista(),
-          //const SizedBox(height: 50),
-          for (int i = 0; i < lista_comentario.length; i++)
-            Card(
-              elevation: 10,
-              child: Container(
-                padding: EdgeInsets.all(20.0),
-                alignment: Alignment.centerLeft,
-                child: ListTile(
-                    title: Text(lista_comentario[i]),
-                    subtitle: Text(lista_email[i])),
-              ),
-            ),
-          Center(child: Text('Isso foi útil?')),
-          Center(
-            child: Row(children: [
-              IconButton(
-                  onPressed: () {
-                    deslikeUpdated();
-                  },
-                  icon: const Icon(Icons.thumb_down)),
-              Text('$deslike'),
-              SizedBox(width: 10),
-              IconButton(
-                  onPressed: () {
-                    likeUpdated();
-                  },
-                  icon: const Icon(Icons.thumb_up)),
-              Text('$like'),
-            ]),
-          ),
-
-          //const SizedBox(height: 50),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Container(
-                alignment: Alignment.center,
-                width: 300,
-                height: 300,
-                child: Form(
-                  key: _form,
-                  child: TextFormField(
-                    controller: _newComentario,
-                    style: const TextStyle(fontSize: 22),
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Adicione seu comentário',
-                    ),
+              //buildlista(),
+              //const SizedBox(height: 50),
+              for (int i = 0; i < lista_comentario.length; i++)
+                Card(
+                  elevation: 10,
+                  child: Container(
+                    padding: EdgeInsets.all(20.0),
+                    alignment: Alignment.centerLeft,
+                    child: ListTile(
+                        title: Text(lista_comentario[i]),
+                        subtitle: Text(lista_email[i])),
                   ),
                 ),
+              SizedBox(
+                height: 20,
               ),
-              FloatingActionButton(
-                  backgroundColor: Color(0xff075E54),
-                  child: Icon(
-                    Icons.send,
-                    color: Colors.white,
+              Center(child: Text('Isso foi útil?')),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                IconButton(
+                    onPressed: () {
+                      deslikeUpdated();
+                    },
+                    icon: const Icon(Icons.thumb_down)),
+                Text('$deslike'),
+                SizedBox(width: 10),
+                IconButton(
+                    onPressed: () {
+                      likeUpdated();
+                    },
+                    icon: const Icon(Icons.thumb_up)),
+                Text('$like'),
+              ]),
+              //const SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.center,
+                    width: 300,
+                    height: 100,
+                    child: Form(
+                      key: _form,
+                      child: TextFormField(
+                        controller: _newComentario,
+                        style: const TextStyle(fontSize: 22),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Adicione seu comentário',
+                        ),
+                      ),
+                    ),
                   ),
-                  mini: true,
-                  onPressed: () {
-                    itemSended(_newComentario, user);
-                  })
+                  FloatingActionButton(
+                      backgroundColor: Color(0xff0303ff),
+                      child: Icon(
+                        Icons.send,
+                        color: Colors.white,
+                      ),
+                      mini: true,
+                      onPressed: () {
+                        itemSended(_newComentario, user);
+                      })
+                ],
+              )
             ],
-          )
-        ],
-      )),
-    );
+          )),
+    ));
   }
 
   @override
