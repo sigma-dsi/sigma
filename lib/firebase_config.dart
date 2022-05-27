@@ -6,8 +6,8 @@ import 'package:projeto_sigma/repositories/code.dart';
 import 'package:projeto_sigma/models/list_disciplinas.dart';
 import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 
-String email = usuario.email; 
-int indice =  email.indexOf("@");
+String email = usuario.email;
+int indice = email.indexOf("@");
 
 class DefaultFirebaseConfig {
   static FirebaseOptions? get platformOptions {
@@ -26,27 +26,35 @@ class DefaultFirebaseConfig {
   }
 }
 
-getfirebase() async{
-  var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");
+getfirebase() async {
+  var db = FirebaseFirestore.instance
+      .collection("lista_disciplinas")
+      .orderBy("indice");
   var result = await db.get();
   //Disciplina disciplina;
   for (var doc in result.docs) {
     lista_cadeira.add(doc['nome']);
     lista_comentario.add(doc['comentario']);
-    tabela_firebase.add(
-        Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
-    );
+    tabela_firebase.add(Disciplina(
+        nome: doc['nome'],
+        usuario: doc['usuario'],
+        comentario: doc["comentario"],
+        indice: doc['indice'],
+        like: doc['like'],
+        deslike: doc['deslike']));
   }
 }
 
-getcursadas() async{
-  email = email.substring(0,indice);
-  var db = await FirebaseFirestore.instance.collection("lista_Disciplinas_cursadas").doc("novo");
+getcursadas() async {
+  email = email.substring(0, indice);
+  var db = await FirebaseFirestore.instance
+      .collection("lista_Disciplinas_cursadas")
+      .doc("novo");
   var result = await db.get();
   //print(result["user"]);
-  for(var el in result["user"]){
+  for (var el in result["user"]) {
     CursadasRepository.usuariosFirebase.add(el);
-    if (el == email){
+    if (el == email) {
       CursadasRepository().getAddCadeiras(result[email]);
       cursadasbool = true;
     }
@@ -103,22 +111,28 @@ getcursadas() async{
 
 getVerificarUser(email) {
   var temuser = CursadasRepository.usuariosFirebase.contains(email);
-  if(temuser == false){
+  if (temuser == false) {
     CursadasRepository.usuariosFirebase.add(email);
   }
 }
 
-getTemCursadas () {
-  email = email.substring(0,indice);
-  if(cursadasbool == true) {
-    FirebaseFirestore.instance.collection("lista_Disciplinas_cursadas").doc("novo").update({
-      email:CursadasRepository.cursadas_disc.toList(),
+getTemCursadas() {
+  email = email.substring(0, indice);
+  if (cursadasbool == true) {
+    FirebaseFirestore.instance
+        .collection("lista_Disciplinas_cursadas")
+        .doc("novo")
+        .update({
+      email: CursadasRepository.cursadas_disc.toList(),
     });
   } else {
     getVerificarUser(email);
-    FirebaseFirestore.instance.collection("lista_Disciplinas_cursadas").doc("novo").update({
-      email:CursadasRepository.cursadas_disc.toList(),
-      "user":CursadasRepository.usuariosFirebase.toList()
+    FirebaseFirestore.instance
+        .collection("lista_Disciplinas_cursadas")
+        .doc("novo")
+        .update({
+      email: CursadasRepository.cursadas_disc.toList(),
+      "user": CursadasRepository.usuariosFirebase.toList()
     });
   }
 }

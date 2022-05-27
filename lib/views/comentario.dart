@@ -23,133 +23,181 @@ class _ComentarioPageState extends State<ComentarioPage> {
   var user = usuario.email;
   List lista_comentario = [];
   List lista_email = [];
+  var deslike;
+  var like;
 
-  void initState(){
+  void initState() {
     lista_comentario = widget.disciplina.comentario;
     lista_email = widget.disciplina.usuario;
+    deslike = widget.disciplina.deslike;
+    like = widget.disciplina.like;
     super.initState();
   }
 
-  void lista_coment(){
-    setState((){
+  void lista_coment() {
+    setState(() {
       lista_comentario;
       lista_email;
+      deslike;
     });
   }
 
   _buildbody() {
     return SingleChildScrollView(
-          child: Center(
-              child: Column(
-                children: <Widget>[
-                  //buildlista(),
-                  //const SizedBox(height: 50),
-                  for(int i = 0; i < lista_comentario.length; i++) Card(
-                    elevation: 10,
-                    child: Container(
-                      padding: EdgeInsets.all(20.0),
-                      alignment: Alignment.centerLeft,
-                      child: ListTile(
-                        title: Text(lista_comentario[i]),
-                        subtitle: Text(lista_email[i])
-                      ),
+      child: Center(
+          child: Column(
+        children: <Widget>[
+          //buildlista(),
+          //const SizedBox(height: 50),
+          for (int i = 0; i < lista_comentario.length; i++)
+            Card(
+              elevation: 10,
+              child: Container(
+                padding: EdgeInsets.all(20.0),
+                alignment: Alignment.centerLeft,
+                child: ListTile(
+                    title: Text(lista_comentario[i]),
+                    subtitle: Text(lista_email[i])),
+              ),
+            ),
+          Center(child: Text('Isso foi útil?')),
+          Center(
+            child: Row(children: [
+              IconButton(
+                  onPressed: () {
+                    deslikeUpdated();
+                  },
+                  icon: const Icon(Icons.thumb_down)),
+              Text('$deslike'),
+              SizedBox(width: 10),
+              IconButton(
+                  onPressed: () {
+                    likeUpdated();
+                  },
+                  icon: const Icon(Icons.thumb_up)),
+              Text('$like'),
+            ]),
+          ),
+
+          //const SizedBox(height: 50),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.center,
+                width: 300,
+                height: 300,
+                child: Form(
+                  key: _form,
+                  child: TextFormField(
+                    controller: _newComentario,
+                    style: const TextStyle(fontSize: 22),
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Adicione seu comentário',
                     ),
                   ),
-                  //const SizedBox(height: 50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        alignment: Alignment.center,
-                        width: 300,
-                        height: 300,
-                        child: Form(
-                          key: _form,
-                          child: TextFormField(
-                            controller: _newComentario,
-                            style: const TextStyle(fontSize: 22),
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: 'Adicione seu comentário',
-                            ),
-                          ),
-                        ),
-                      ),
-                      FloatingActionButton(
-                        backgroundColor: Color(0xff075E54),
-                        child: Icon(
-                          Icons.send,
-                          color: Colors.white,
-                        ),
-                        mini: true,
-                        onPressed: () {
-                          itemSended(_newComentario, user);
-                        }
-                      )
-                    ],
-                  )
-                ],
-              )),
-        );
+                ),
+              ),
+              FloatingActionButton(
+                  backgroundColor: Color(0xff075E54),
+                  child: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                  ),
+                  mini: true,
+                  onPressed: () {
+                    itemSended(_newComentario, user);
+                  })
+            ],
+          )
+        ],
+      )),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = usuario.email;
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.disciplina.nome),
         ),
-        body:  _buildbody()
-      );
-    }
+        body: _buildbody());
+  }
 
-    _body() {
-      return FutureBuilder<String>(
+  _body() {
+    return FutureBuilder<String>(
         future: getfirebase(),
         builder: (context, snapshot) {
-          if(snapshot.hasError) {
-            return Center(child:
-              Text("Erro ao acessar os dados")
-            );
+          if (snapshot.hasError) {
+            return Center(child: Text("Erro ao acessar os dados"));
           }
 
-          if(!snapshot.hasData){
+          if (!snapshot.hasData) {
             return Center(
               child: CircularProgressIndicator(),
             );
           }
 
           return _buildbody();
-        }
-
-      );
-    }
+        });
+  }
 
   //Aqui onde tem de chamar Disciplina
-  itemSended(_newComentario, user) async{
+  itemSended(_newComentario, user) async {
     String indice = widget.disciplina.indice.toString();
     lista_comentario.add(_newComentario.text);
     lista_email.add(user);
     lista_coment();
-    FirebaseFirestore.instance.collection("lista_Disciplinas").doc(indice).update({
-      "comentario":lista_comentario.toList(),
-      "usuario":lista_email.toList(),
+    FirebaseFirestore.instance
+        .collection("lista_Disciplinas")
+        .doc(indice)
+        .update({
+      "comentario": lista_comentario.toList(),
+      "usuario": lista_email.toList(),
     });
     //List<Disciplina> comentarios =  await getcomentarios();
     //_streamController.add(comentarios);
   }
 
-  getcomentarios() async{
-    var db = FirebaseFirestore.instance.collection("lista_Disciplinas").orderBy("indice");
+  getcomentarios() async {
+    var db = FirebaseFirestore.instance
+        .collection("lista_Disciplinas")
+        .orderBy("indice");
     var result = await db.get();
     Disciplina disciplina;
     for (var doc in result.docs) {
-      tabela_firebase.add(
-        Disciplina(nome: doc['nome'], usuario: doc['usuario'], comentario: doc["comentario"], indice: doc['indice'])
-      );
-  }
-  List comentarios = await widget.disciplina.comentario;
+      tabela_firebase.add(Disciplina(
+          nome: doc['nome'],
+          usuario: doc['usuario'],
+          comentario: doc["comentario"],
+          indice: doc['indice'],
+          like: doc['like'],
+          deslike: doc['deslike']));
+    }
+
+    List comentarios = await widget.disciplina.comentario;
 /*  List listaComentarios = widget.disciplina.comentario;
   _streamController.add(listaComentarios);*/
+  }
+
+  deslikeUpdated() async {
+    String indice = widget.disciplina.indice.toString();
+    var deslike = widget.disciplina.deslike;
+    var db = FirebaseFirestore.instance
+        .collection("lista_Disciplinas")
+        .doc(indice)
+        .update({"deslike": FieldValue.increment(-1)});
+  }
+
+  likeUpdated() async {
+    String indice = widget.disciplina.indice.toString();
+    var deslike = widget.disciplina.deslike;
+    var db = FirebaseFirestore.instance
+        .collection("lista_Disciplinas")
+        .doc(indice)
+        .update({"like": FieldValue.increment(1)});
   }
 }
