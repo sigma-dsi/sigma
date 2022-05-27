@@ -65,21 +65,27 @@ class _ComentarioPageState extends State<ComentarioPage> {
               Center(child: Text('Isso foi útil?')),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 IconButton(
-                    onPressed: () {
-                      setState(() {
+                  onPressed: () {
+                    setState(
+                      () {
                         deslikeUpdated();
-                      });
-                    },
-                    icon: const Icon(Icons.thumb_down)),
+                      },
+                    );
+                  },
+                  icon: const Icon(Icons.thumb_down),
+                  color: Color(0xff0303ff),
+                ),
                 Text('$deslike'),
                 SizedBox(width: 10),
                 IconButton(
-                    onPressed: () {
-                      setState(() {
-                        likeUpdated();
-                      });
-                    },
-                    icon: const Icon(Icons.thumb_up)),
+                  onPressed: () {
+                    setState(() {
+                      likeUpdated();
+                    });
+                  },
+                  icon: const Icon(Icons.thumb_up),
+                  color: Color(0xff0303ff),
+                ),
                 Text('$like'),
               ]),
               //const SizedBox(height: 50),
