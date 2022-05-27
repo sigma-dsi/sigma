@@ -1,9 +1,5 @@
-import 'dart:async';
-import '../main.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_sigma/repositories/disciplina_repository.dart.dart';
 import '../models/list_disciplinas.dart';
 import '../repositories/code.dart';
 import '../firebase_config.dart';
@@ -38,6 +34,7 @@ class _ComentarioPageState extends State<ComentarioPage> {
     setState(() {
       lista_comentario;
       lista_email;
+      like;
       deslike;
     });
   }
@@ -69,14 +66,18 @@ class _ComentarioPageState extends State<ComentarioPage> {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 IconButton(
                     onPressed: () {
-                      deslikeUpdated();
+                      setState(() {
+                        deslikeUpdated();
+                      });
                     },
                     icon: const Icon(Icons.thumb_down)),
                 Text('$deslike'),
                 SizedBox(width: 10),
                 IconButton(
                     onPressed: () {
-                      likeUpdated();
+                      setState(() {
+                        likeUpdated();
+                      });
                     },
                     icon: const Icon(Icons.thumb_up)),
                 Text('$like'),
@@ -186,18 +187,20 @@ class _ComentarioPageState extends State<ComentarioPage> {
 
   deslikeUpdated() async {
     String indice = widget.disciplina.indice.toString();
-    var deslike = widget.disciplina.deslike;
-    var db = FirebaseFirestore.instance
-        .collection("lista_Disciplinas")
+    deslike += 1;
+    lista_coment();
+    var db = await FirebaseFirestore.instance
+        .collection("lista_disciplinas")
         .doc(indice)
-        .update({"deslike": FieldValue.increment(-1)});
+        .update({"deslike": FieldValue.increment(1)});
   }
 
   likeUpdated() async {
     String indice = widget.disciplina.indice.toString();
-    var deslike = widget.disciplina.deslike;
-    var db = FirebaseFirestore.instance
-        .collection("lista_Disciplinas")
+    like += 1;
+    lista_coment();
+    var db = await FirebaseFirestore.instance
+        .collection("lista_disciplinas")
         .doc(indice)
         .update({"like": FieldValue.increment(1)});
   }
