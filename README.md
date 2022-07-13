@@ -18,7 +18,12 @@ samples, guidance on mobile development, and a full API reference.
 ## Telas
 
 ![image](https://user-images.githubusercontent.com/55416921/178627568-648ffe97-6404-4e39-8f02-1f606518f1ad.png)
-![image](https://user-images.githubusercontent.com/55416921/178627686-af02429b-9f5c-40ba-b915-1d31591c46e2.png)
+![image](https://user-images.githubusercontent.com/55416921/178634553-56a06aea-5ce4-47da-809d-40c6a5847e06.png)
 ![image](https://user-images.githubusercontent.com/55416921/178627793-00e9423e-6101-4cc5-90e3-af3d6b098225.png)
 ![image](https://user-images.githubusercontent.com/55416921/178627894-f443bd6a-96fb-4bbd-bf0e-bcae2ae35cf6.png)
+![image](https://user-images.githubusercontent.com/55416921/178634618-8faad852-af63-49e5-a3b7-b43b6cbf41e8.png)
+![image](https://user-images.githubusercontent.com/55416921/178634725-281c5c89-45b6-4f3d-ac38-ac033c5818b6.png)
+![image](https://user-images.githubusercontent.com/55416921/178634823-634722d4-cf62-43da-a35c-e38141aacc55.png)
+![image](https://user-images.githubusercontent.com/55416921/178634918-deac84d3-4036-45f6-bdb6-bbb84dba8a3d.png)
+
 
