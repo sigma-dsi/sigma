@@ -1,4 +1,4 @@
-# projeto_sigma
+# Projeto Sigma
 
 A new Flutter project.
 
