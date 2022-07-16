@@ -21,20 +21,21 @@ samples, guidance on mobile development, and a full API reference.
 ## Telas
 
 ### Tela de carregamento
-
+![teladeinicializaçao](https://user-images.githubusercontent.com/55416921/179366676-eec7dd0e-3fd7-42a3-bd2c-613a4987577a.png)
 ### Tela de Login
-![1-login](https://user-images.githubusercontent.com/55416921/179365845-1b4b748d-9cb4-482e-aac1-60f59dc986c7.png)
-### Tela de Menu
-![2-Menu](https://user-images.githubusercontent.com/55416921/179365856-ab11bcde-e6b1-4ae4-bde6-3daf60db1304.png)
+![login](https://user-images.githubusercontent.com/55416921/179366709-c37d6e19-78e9-4000-a586-028d9b0ffcbd.png)
+### Tela de Menu e Pop-up Indicação vazio(Somente aparece quando clica em "tela de indicação" no menu)
+![menu](https://user-images.githubusercontent.com/55416921/179366714-05d33dff-aea1-4bec-a898-0a2c7a699652.png)
+![telaindicacao](https://user-images.githubusercontent.com/55416921/179366799-efe2648e-fb38-4069-b544-0fd83089d3bd.png)
 ### Tela de Selecionar as Disciplinas
-![3-selecionardisciplinas](https://user-images.githubusercontent.com/55416921/179365865-116c758b-9af6-4a45-b160-b4b9ac357517.png)
-![4-countdisciplinas](https://user-images.githubusercontent.com/55416921/179365868-87c38a73-b61f-4343-992c-3d05438ac825.png)
+![disciplinas](https://user-images.githubusercontent.com/55416921/179366734-e2250693-dc8a-406e-b32a-e8c1ba89e168.png)
+![count](https://user-images.githubusercontent.com/55416921/179366736-45da3626-e615-4c83-a260-b82a3026dee0.png)
+![indicaas](https://user-images.githubusercontent.com/55416921/179366737-9b6ad9e0-0985-4c3f-a0f4-d49397f9ce18.png)
 ### Tela de Descrição do Curso
 ![5-descrição](https://user-images.githubusercontent.com/55416921/179365887-a7723f01-fb19-4fc7-ab50-7d90b8348445.png)
 ### Tela de Grade Curricular
 ![6-gradecurricular](https://user-images.githubusercontent.com/55416921/179365910-b7d9cb29-23c1-4cc1-9beb-c1e9626e9023.png)
 ### Tela de Forum
-![8-forum2](https://user-images.githubusercontent.com/55416921/179365918-26dedcea-fe94-4281-aebd-bbd64fb6ded2.png)
-![7-forum1](https://user-images.githubusercontent.com/55416921/179365919-5d290616-e342-4ef3-b178-4580bccad34d.png)
-
+![forum1](https://user-images.githubusercontent.com/55416921/179366743-2bb60175-5183-45df-a915-807659df1c3f.png)
+![forum2](https://user-images.githubusercontent.com/55416921/179366744-0a6e8fc3-f981-4375-aaed-06ffc36eb752.png)
 
