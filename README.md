@@ -3,13 +3,11 @@ Por https://github.com/dressalsl, https://github.com/lhaislla, https://github.co
 A new Flutter project.
 
 ## Getting Started
-<p dir="auto">
-  Esse repositório dedicasse a versionar o conteúdo sobre desenvolvimento das atividades práticas da disciplina de DSI - Desenvolvimento para Sistemas de Informação, ofertada pelo curso de Bacharelado em Sistemas de Informação da UFRPE.
-<p/>
 
-<p dir="auto">
-  Nesta branch emais especificamente na branch 3VA serão apresentadas todo o corpo de desenvolvimento desse aplicativo, que servirá como um direcionamento para estudantes blocados que estão em dúvida de em quais cadeiras cursa em um determinado perído letivo. Esse aplicativo foi desenvolvido com Flutter, como requisito avaliativo da disciplina de Desenvolvimento de Sistemas de Informação.
-<p/>
+>Esse repositório dedicasse a versionar o conteúdo sobre desenvolvimento das atividades práticas da disciplina de DSI - Desenvolvimento para Sistemas de Informação, ofertada pelo curso de Bacharelado em Sistemas de Informação da UFRPE.
+
+>Nesta branch emais especificamente na branch 3VA serão apresentadas todo o corpo de desenvolvimento desse aplicativo, que servirá como um direcionamento para estudantes blocados que estão em dúvida de em quais cadeiras cursa em um determinado perído letivo. Esse aplicativo foi desenvolvido com Flutter, como requisito avaliativo da disciplina de Desenvolvimento de Sistemas de Informação.
+
 
 A few resources to get you started if this is your first Flutter project:
 
