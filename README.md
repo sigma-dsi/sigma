@@ -1,7 +1,7 @@
 # Projeto Sigma
 Por [Andressa Santana](https://github.com/dressalsl), [Lhaíslla Cavalcanti](https://github.com/lhaislla), [Artillis Prado](https://github.com/TilinhoFrond-End)
 
-## Getting Started
+## Introdução
 
 >Esse repositório dedicasse a versionar o conteúdo sobre desenvolvimento das atividades práticas da disciplina de DSI - Desenvolvimento para Sistemas de Informação, ofertada pelo curso de Bacharelado em Sistemas de Informação da UFRPE.
 
