@@ -27,11 +27,11 @@ simples e uma orientação sobre desenvolvimento móvel e uma referência comple
 Video link about the application I: [Video I](https://user-images.githubusercontent.com/55416921/179364473-dbdd4b78-aabf-4891-8f59-7a9519116ac2.mp4)
 
 Video link about the application II: [Video II](https://user-images.githubusercontent.com/55416921/179368229-341f3a03-f291-4cbb-8f47-23c0bbc1e27c.mp4)
-### - Loading Screen / Tela de carregamento
+### - Presentation Screen / Tela de apresentação
 ![teladeinicializaçao](https://user-images.githubusercontent.com/55416921/179366676-eec7dd0e-3fd7-42a3-bd2c-613a4987577a.png)
 ### - Login Screen / Tela de Login
 ![login](https://user-images.githubusercontent.com/55416921/179366709-c37d6e19-78e9-4000-a586-028d9b0ffcbd.png)
-### - Menu Screen and Empty Indication Pop-up (Only appears when you click on "indication screen" in the menu) / Tela de Menu e Pop-up Indicação vazio(Somente aparece quando clica em "tela de indicação" no menu)
+### - Menu Screen and Empty Indication Pop-up (Only appears when you click on "indication screen" in the menu) / Tela de Home e Pop-up Indicação vazio(Somente aparece quando clica em "tela de indicação" no menu)
 ![menu](https://user-images.githubusercontent.com/55416921/179366714-05d33dff-aea1-4bec-a898-0a2c7a699652.png)
 ![telaindicacao](https://user-images.githubusercontent.com/55416921/179366799-efe2648e-fb38-4069-b544-0fd83089d3bd.png)
 ### - Select the Subjects Screen / Tela de Selecionar as Disciplinas
