@@ -5,16 +5,16 @@ Por [Andressa Santana](https://github.com/dressalsl), [Lhaíslla Cavalcanti](htt
 
 >Esse repositório dedicasse a versionar o conteúdo sobre desenvolvimento das atividades práticas da disciplina de DSI - Desenvolvimento para Sistemas de Informação, ofertada pelo curso de Bacharelado em Sistemas de Informação da UFRPE.
 
->Nesta branch emais especificamente na branch 3VA serão apresentadas todo o corpo de desenvolvimento desse aplicativo, que servirá como um direcionamento para estudantes blocados que estão em dúvida de em quais cadeiras cursa em um determinado perído letivo. Esse aplicativo foi desenvolvido com Flutter, como requisito avaliativo da disciplina de Desenvolvimento de Sistemas de Informação.
+>Nesta branch e mais especificamente na branch 3VA serão apresentadas todo o corpo de desenvolvimento desse aplicativo, que servirá como um direcionamento para estudantes blocados que estão em dúvida de em quais cadeiras cursa em um determinado perído letivo. Esse aplicativo foi desenvolvido com Flutter, como requisito avaliativo da disciplina de Desenvolvimento de Sistemas de Informação.
 
-A few resources to get you started if this is your first Flutter project:
+Alguns recursos para você começar se este for o seu primeiro projeto Flutter:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para obter ajuda para começar a usar o Flutter, consulte o site
+[online documentation](https://flutter.dev/docs), que oferece tutoriais
+simplese e uma orientação sobre desenvolvimento móvel e uma referência completa de API.
 
 ## Telas
 Link de video sobre o aplicativo: https://user-images.githubusercontent.com/55416921/179364473-dbdd4b78-aabf-4891-8f59-7a9519116ac2.mp4
