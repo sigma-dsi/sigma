@@ -1,13 +1,11 @@
 # Projeto Sigma
-Por https://github.com/dressalsl, https://github.com/lhaislla, https://github.com/TilinhoFrond-End
-A new Flutter project.
+Por [Andressa Santana](https://github.com/dressalsl), [Lhaíslla Cavalcanti](https://github.com/lhaislla), [Artillis Prado](https://github.com/TilinhoFrond-End)
 
 ## Getting Started
 
 >Esse repositório dedicasse a versionar o conteúdo sobre desenvolvimento das atividades práticas da disciplina de DSI - Desenvolvimento para Sistemas de Informação, ofertada pelo curso de Bacharelado em Sistemas de Informação da UFRPE.
 
 >Nesta branch emais especificamente na branch 3VA serão apresentadas todo o corpo de desenvolvimento desse aplicativo, que servirá como um direcionamento para estudantes blocados que estão em dúvida de em quais cadeiras cursa em um determinado perído letivo. Esse aplicativo foi desenvolvido com Flutter, como requisito avaliativo da disciplina de Desenvolvimento de Sistemas de Informação.
-
 
 A few resources to get you started if this is your first Flutter project:
 
