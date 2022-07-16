@@ -8,14 +8,18 @@ import 'package:projeto_sigma/views/app_widget.dart';
 import 'firebase_config.dart';
 import 'package:projeto_sigma/repositories/code.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initialization(null);
   await Firebase.initializeApp(options: DefaultFirebaseConfig.platformOptions);
   getfirebase();
   runApp(new AppWidget());
 }
 
+Future initialization(BuildContext? context) async {
+
+  await Future.delayed(Duration(seconds: 3));
+}
 
 
 
