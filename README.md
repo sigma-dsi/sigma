@@ -3,18 +3,22 @@ By [Andressa Santana](https://github.com/dressalsl), [Lhaíslla Cavalcanti](http
 
 ## Getting Started / Introdução
 >This repository is dedicated to versioning the content about the development of the practical activities of the course DSI - Development for Information Systems, offered by the Bachelor of Information Systems course at UFRPE.
+
 >Esse repositório dedicasse a versionar o conteúdo sobre desenvolvimento das atividades práticas da disciplina de DSI - Desenvolvimento para Sistemas de Informação, ofertada pelo curso de Bacharelado em Sistemas de Informação da UFRPE.
 
 >In this branch, and more specifically in branch 3VA, the whole body of development of this application will be presented. This application will serve as a guide for blocked students who are in doubt about which subjects to take in a given term. This application was developed with Flutter, as an evaluative requirement of the discipline Information Systems Development.
+
 >Nesta branch e mais especificamente na branch 3VA serão apresentadas todo o corpo de desenvolvimento desse aplicativo, que servirá como um direcionamento para estudantes blocados que estão em dúvida de em quais cadeiras cursa em um determinado perído letivo. Esse aplicativo foi desenvolvido com Flutter, como requisito avaliativo da disciplina de Desenvolvimento de Sistemas de Informação.
 
 A few resources to get you started if this is your first Flutter project:
+
 Alguns recursos para você começar se este for o seu primeiro projeto Flutter:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
 For help getting started with Flutter, view our online documentation, which offers tutorials [online documentation](https://flutter.dev/docs), samples, guidance on mobile development, and a full API reference.
+
 Para obter ajuda para começar a usar o Flutter, consulte o site
 [online documentation](https://flutter.dev/docs), que oferece tutoriais
 simples e uma orientação sobre desenvolvimento móvel e uma referência completa de API.
