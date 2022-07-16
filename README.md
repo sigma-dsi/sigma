@@ -4,8 +4,25 @@ A new Flutter project.
 
 ## Getting Started
 
-https://user-images.githubusercontent.com/55416921/179364473-dbdd4b78-aabf-4891-8f59-7a9519116ac2.mp4
-https://user-images.githubusercontent.com/55416921/179364446-2d482ced-dd94-4d51-a3fd-6dd431eec2e2.mp4
+<amp-video controls
+  width="640"
+  height="360"
+  src="https://user-images.githubusercontent.com/55416921/179364473-dbdd4b78-aabf-4891-8f59-7a9519116ac2.mp4">
+  <div fallback>
+    <p>This browser does not support the video element.</p>
+  </div>
+</amp-video>
+
+<amp-video controls
+  width="640"
+  height="360"
+  src="https://user-images.githubusercontent.com/55416921/179364446-2d482ced-dd94-4d51-a3fd-6dd431eec2e2.mp4">
+  <div fallback>
+    <p>This browser does not support the video element.</p>
+  </div>
+</amp-video>
+
+
 
 This project is a starting point for a Flutter application.
 
