@@ -24,9 +24,9 @@ Para obter ajuda para começar a usar o Flutter, consulte o site
 simples e uma orientação sobre desenvolvimento móvel e uma referência completa de API.
 
 ## Screens / Telas
-Video link about the application I: https://user-images.githubusercontent.com/55416921/179364473-dbdd4b78-aabf-4891-8f59-7a9519116ac2.mp4
+Video link about the application I: [Video I](https://user-images.githubusercontent.com/55416921/179364473-dbdd4b78-aabf-4891-8f59-7a9519116ac2.mp4)
 
-Video link about the application II: https://user-images.githubusercontent.com/55416921/179368229-341f3a03-f291-4cbb-8f47-23c0bbc1e27c.mp4
+Video link about the application II: [Video II](https://user-images.githubusercontent.com/55416921/179368229-341f3a03-f291-4cbb-8f47-23c0bbc1e27c.mp4)
 ### - Loading Screen / Tela de carregamento
 ![teladeinicializaçao](https://user-images.githubusercontent.com/55416921/179366676-eec7dd0e-3fd7-42a3-bd2c-613a4987577a.png)
 ### - Login Screen / Tela de Login
